@@ -1,12 +1,11 @@
-import './App.css'
+// ** Route
+import AppRoutes from "@/components/AppRoutes";
+
+// ** Css
+import './styles/index.css'
 
 function App() {
-
-  return (
-    <>
-        <div className='text-blue-300'>React Vite + TaiwindCss + Shadcn ui</div>
-    </>
-  )
+    return <AppRoutes />;
 }
 
-export default App
+export default App;
