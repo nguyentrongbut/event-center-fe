@@ -70,7 +70,7 @@ const Header = () => {
         }
     }
     return (
-        <header className="bg-white/90 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-50">
+        <header className="bg-primaryColor backdrop-blur-sm border-b border-slate-200 sticky top-0 z-50 py-5">
             <Container>
                 <div className="flex items-center justify-between h-16">
 

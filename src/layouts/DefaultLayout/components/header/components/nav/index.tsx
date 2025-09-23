@@ -9,7 +9,7 @@ import DropdownNav from "@/layouts/DefaultLayout/components/header/components/na
 import NavList from "@/layouts/DefaultLayout/components/header/components/nav/components/nav.list.tsx";
 
 // ** Configs
-import {listNav} from "@/configs/layout.ts";
+import {listNav} from "@/configs/layout.tsx";
 
 const Nav = () => {
     return (

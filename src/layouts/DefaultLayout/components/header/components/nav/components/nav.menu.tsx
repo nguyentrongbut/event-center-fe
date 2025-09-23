@@ -6,16 +6,17 @@ import {
 
 // ** Layouts
 import DropdownNav from "@/layouts/DefaultLayout/components/header/components/nav/components/dropdown.nav.tsx";
+import NavList from "@/layouts/DefaultLayout/components/header/components/nav/components/nav.list.tsx";
 
 // ** Configs
-
+import {listNav} from "@/configs/layout.tsx";
 
 const NavMenu = () => {
     return (
         <NavigationMenu viewport={false}>
             <NavigationMenuList>
                 <DropdownNav/>
-                {/*<NavList list={listNav}></NavList>*/}
+                <NavList list={listNav}/>
             </NavigationMenuList>
         </NavigationMenu>
     )

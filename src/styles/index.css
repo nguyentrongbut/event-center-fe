@@ -140,4 +140,8 @@
   .bg-primaryColor {
     background-color: #FFFAE3;
   }
+
+  .text-thirdColor {
+    color: #4E545F;
+  }
 }

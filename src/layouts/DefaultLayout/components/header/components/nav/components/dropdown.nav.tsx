@@ -13,6 +13,8 @@ import {
 
 // ** services
 import {getListEvent} from "@/services/events";
+
+// ** type
 import type {TEvent} from "@/types/data";
 
 const DropdownNav = () => {
@@ -35,7 +37,7 @@ const DropdownNav = () => {
     return (
         <NavigationMenuItem>
             <NavigationMenuTrigger
-                className="text-slate-700 hover:text-primary transition-colors hover:bg-transparent font-normal cursor-pointer">
+                className="text-thirdColor bg-primaryColor hover:text-primary transition-colors hover:bg-transparent font-normal cursor-pointer">
                 Service
             </NavigationMenuTrigger>
             <NavigationMenuContent>

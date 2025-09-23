@@ -12,7 +12,7 @@ import {Sheet, SheetContent, SheetTitle, SheetTrigger} from "@/components/ui/she
 import {ChevronRight, Menu} from "lucide-react";
 
 // ** Configs
-import {listDropdownNav, listNav} from "@/configs/layout.ts";
+import {listDropdownNav, listNav} from "@/configs/layout.tsx";
 import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/ui/collapsible.tsx";
 import {Link} from "react-router-dom";
 

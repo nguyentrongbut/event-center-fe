@@ -4,8 +4,7 @@ import {Helmet} from "react-helmet-async";
 // ** shadcn ui
 import {Button} from "@/components/ui/button.tsx";
 
-function App() {
-
+function Home() {
     return (
         <>
             <Helmet>
@@ -21,4 +20,4 @@ function App() {
     )
 }
 
-export default App
+export default Home
