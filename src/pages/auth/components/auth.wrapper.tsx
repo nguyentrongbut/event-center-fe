@@ -22,11 +22,11 @@ interface IAuthWrapperProps {
 const AuthWrapper = ({children, className, page}: IAuthWrapperProps) => {
     const linkPage = page === 'sign in' ? 'sign-up' : 'sign-in';
     return (
-        <div className={cn('bg-[#FFFAE3] w-full min-h-screen flex justify-center items-center py-20', className)}>
+        <div className={cn('bg-primaryColor w-full min-h-screen flex justify-center items-center py-20', className)}>
             <div className="w-full max-w-md">
                 <div className="text-center mb-8">
                     <div className="flex justify-center">
-                        <Logo/>
+                        <Logo size='lg'/>
                     </div>
                     <p className="text-gray-600 mt-2 dark:text-white">Welcome back! Please {page} to your account.</p>
                 </div>

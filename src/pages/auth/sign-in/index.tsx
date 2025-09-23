@@ -15,13 +15,15 @@ import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 
 // ** Components
-import AuthWrapper from "@/components/common/auth.wrapper.tsx";
 import {InputForm} from "@/pages/auth/components/input";
 import {InputPassword} from "@/components/input";
 
 // ** Shadcn ui
 import {Form, FormControl, FormField, FormItem, FormMessage} from "@/components/ui/form.tsx";
 import {Button} from "@/components/ui/button.tsx";
+
+// ** Pages
+import AuthWrapper from "@/pages/auth/components/auth.wrapper.tsx";
 
 // ** services
 import {signIn} from "@/services/auth";

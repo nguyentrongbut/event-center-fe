@@ -15,7 +15,6 @@ import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 
 // ** Components
-import AuthWrapper from "@/components/common/auth.wrapper.tsx";
 import {InputIcon, InputPassword} from "@/components/input";
 
 import {InputForm} from "@/pages/auth/components/input";
@@ -24,6 +23,9 @@ import {InputForm} from "@/pages/auth/components/input";
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form.tsx";
 import {Button} from "@/components/ui/button.tsx";
 import {Checkbox} from "@/components/ui/checkbox.tsx";
+
+// ** Pages
+import AuthWrapper from "@/pages/auth/components/auth.wrapper.tsx";
 
 // ** services
 import {signUp} from "@/services/auth";

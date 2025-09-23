@@ -11,3 +11,11 @@ export async function signUp(values: SignUpForm) {
     console.log(values)
     return true
 }
+
+export async function getProfile() {
+    return null
+}
+
+export async function logout() {
+    return true
+}

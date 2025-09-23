@@ -22,7 +22,7 @@ const buttonVariants = cva(
                     "bg-[#191720] text-white hover:bg-[#191720]/90",
             },
             size: {
-                default: "h-11 px-6 py-2",
+                default: "h-10 px-4 py-2",
                 full: 'w-full py-2'
             },
         },

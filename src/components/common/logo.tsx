@@ -11,10 +11,11 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { ChefHat } from "lucide-react";
 
-const logoVariants = cva("text-3xl font-bold text-slate-800", {
+const logoVariants = cva("text-2xl font-bold text-slate-800", {
     variants: {
         size: {
-            default: "text-3xl font-bold text-slate-800",
+            default: "text-2xl font-bold text-slate-800",
+            lg: 'text-3xl'
         },
     },
     defaultVariants: {
