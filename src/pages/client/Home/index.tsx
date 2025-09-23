@@ -16,7 +16,7 @@ function App() {
                 <meta name="keywords" content="party booking, event booking, catering, banquet, wedding, online party service" />
             </Helmet>
             <h1 className='text-primary'>Event Center</h1>
-            <Button>Click me!</Button>
+            <Button variant='secondary'>Click me!</Button>
         </>
     )
 }
