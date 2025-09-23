@@ -32,7 +32,6 @@ const DropdownNav = () => {
 
         fetchListEvent()
     }, []);
-    console.log(listNavEvent)
 
     return (
         <NavigationMenuItem>

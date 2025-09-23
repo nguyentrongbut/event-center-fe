@@ -5,7 +5,6 @@ import NavListMobile from "@/layouts/DefaultLayout/components/header/components/
 import Logo from "@/components/common/logo.tsx";
 
 // ** Shadcn ui
-import {Button} from "@/components/ui/button";
 import {Sheet, SheetContent, SheetTitle, SheetTrigger} from "@/components/ui/sheet.tsx";
 
 // ** Lucide icon
@@ -21,9 +20,7 @@ const NavMobileMenu = () => {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant='outline' size="icon" className="cursor-pointer">
-                    <Menu className="size-4"/>
-                </Button>
+                <Menu className="size-5 cursor-pointer text-primary"/>
             </SheetTrigger>
             <SheetContent side="left" className="w-60">
                 <div className="p-6">
@@ -34,12 +31,13 @@ const NavMobileMenu = () => {
                         <div>dkd</div>
                     ) : (
                         <nav className="flex flex-col space-y-3 mt-10 text-sm text-gray-500 dark:text-gray-300">
-                            <Collapsible  className="group">
+                            <Collapsible className="group">
                                 <CollapsibleTrigger asChild>
                                     <div
                                         className="w-full cursor-pointer flex items-center justify-between text-sm hover:text-amber-600 transition-colors">
                                         Dịch vụ
-                                        <ChevronRight className="size-4 transition-transform group-data-[state=open]:rotate-90"/>
+                                        <ChevronRight
+                                            className="size-4 transition-transform group-data-[state=open]:rotate-90"/>
                                     </div>
                                 </CollapsibleTrigger>
 

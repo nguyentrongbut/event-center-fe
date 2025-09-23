@@ -36,6 +36,53 @@ import toast from "react-hot-toast";
 // ** Hooks
 import useTailwindBreakpoints from "@/hooks/useTailwindBreakpoints.tsx";
 
+interface IUserDropdownProps {
+    infoProfile: TProfile;
+    handleLogout: () => void;
+}
+
+const UserDropdown = ({infoProfile, handleLogout}: IUserDropdownProps) => {
+    return (
+        <DropdownMenu>
+            <DropdownMenuTrigger>
+                <Avatar className='size-10 sm:size-11'>
+                    <AvatarImage src={infoProfile?.avatar || '/default-avatar.png'}
+                                 alt={infoProfile?.name}
+                    />
+                    <AvatarFallback>
+                        <img
+                            src={infoProfile?.avatar || "/default-avatar.png"}
+                            alt="@shadcn"
+                            width={50}
+                            height={50}
+                            className="object-cover size-9"
+                        />
+                    </AvatarFallback>
+                </Avatar>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="center" sideOffset={10}>
+                <p className="text-sm py-1.5 px-2 my-1 max-w-[123px]">
+                    <b className="line-clamp-1 capitalize">
+                        Hello {infoProfile?.name}!
+                    </b>
+                </p>
+                <DropdownMenuItem asChild>
+                    <TextIcon
+                        to="/profile"
+                        icon={<User className="size-4"/>}
+                    >
+                        Profile
+                    </TextIcon>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                    <TextIcon icon={<LogOut className="size-4"/>} onClick={handleLogout}>
+                        Logout
+                    </TextIcon>
+                </DropdownMenuItem>
+            </DropdownMenuContent>
+        </DropdownMenu>
+    )
+}
 
 const Header = () => {
 
@@ -102,85 +149,15 @@ const Header = () => {
                                 </Button>
                             </Link>
                         ) : (
-                            isLg ? <DropdownMenu>
-                                <DropdownMenuTrigger>
-                                    <Avatar>
-                                        <AvatarImage src="kdd" alt="@shadcn"/>
-                                        <AvatarFallback>
-                                            <img
-                                                src={infoProfile?.avatar || "/default-avatar.png"}
-                                                alt="@shadcn"
-                                                width={50}
-                                                height={50}
-                                                className="object-cover size-9"
-                                            />
-                                        </AvatarFallback>
-                                    </Avatar>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="center" sideOffset={10}>
-                                    <p className="text-sm py-1.5 px-2 my-1 max-w-[123px]">
-                                        <b className="line-clamp-1 capitalize">
-                                            Hello {infoProfile?.name}!
-                                        </b>
-                                    </p>
-                                    <DropdownMenuItem asChild>
-                                        <TextIcon
-                                            to="/profile"
-                                            icon={<User className="size-4"/>}
-                                        >
-                                            Profile
-                                        </TextIcon>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem>
-                                        <TextIcon icon={<LogOut className="size-4"/>} onClick={handleLogout}>
-                                            Logout
-                                        </TextIcon>
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu> : <span></span>
+                            isLg ? <UserDropdown infoProfile={infoProfile} handleLogout={handleLogout}/> : <span></span>
                         )}
                     </div>
 
                     {/* Mobile Navigation */}
 
                     {!isLg &&
-                        <div className='flex justify-center items-center gap-4'>
-                            <DropdownMenu>
-                                <DropdownMenuTrigger>
-                                    <Avatar>
-                                        <AvatarImage src="kdd" alt="@shadcn"/>
-                                        <AvatarFallback>
-                                            <img
-                                                src={infoProfile?.avatar || "/default-avatar.png"}
-                                                alt="@shadcn"
-                                                width={50}
-                                                height={50}
-                                                className="object-cover size-9"
-                                            />
-                                        </AvatarFallback>
-                                    </Avatar>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent align="center" sideOffset={10}>
-                                    <p className="text-sm py-1.5 px-2 my-1 max-w-[123px]">
-                                        <b className="line-clamp-1 capitalize">
-                                            Hello {infoProfile?.name}!
-                                        </b>
-                                    </p>
-                                    <DropdownMenuItem asChild>
-                                        <TextIcon
-                                            to="/profile"
-                                            icon={<User className="size-4"/>}
-                                        >
-                                            Profile
-                                        </TextIcon>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem>
-                                        <TextIcon icon={<LogOut className="size-4"/>} onClick={handleLogout}>
-                                            Logout
-                                        </TextIcon>
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
+                        <div className='flex justify-center items-center gap-8'>
+                            <UserDropdown infoProfile={infoProfile as TProfile} handleLogout={handleLogout}/>
                             <NavMobileMenu/>
                         </div>
                     }
