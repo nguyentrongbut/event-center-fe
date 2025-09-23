@@ -79,13 +79,13 @@ const SignUp = () => {
         setIsSubmitting(true);
         try {
             const result = await signUp(values);
-            if (!result) return toast.error('Registration failed. Please check your details!');
+            if (!result) return toast.error('Sign up failed. Please check your details!');
             if (result) {
-                toast.success('Registration successful! Please log in.');
-                navigate('/login');
+                toast.success('Sign up successful! Please log in.');
+                navigate('/sign-in');
             }
         } catch (error) {
-            console.error("Error during registration:", error);
+            console.error("Error during Sign up:", error);
         } finally {
             setIsSubmitting(false);
         }

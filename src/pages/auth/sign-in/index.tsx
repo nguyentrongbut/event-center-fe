@@ -30,6 +30,7 @@ import {signIn} from "@/services/auth";
 
 // ** reac hot toast
 import toast from "react-hot-toast";
+import {ROLE} from "@/configs/role.ts";
 
 const formSchema = z.object({
     email: z.string().email({message: 'Invalid email address'}),
@@ -58,16 +59,19 @@ const SignIn = () => {
         setIsSubmitting(true);
         try {
             const result = await signIn(values);
+
             if (!result) {
                 return toast.error(
                     "Sign in failed. Please check your credentials!"
                 );
             }
-            toast.success("Login successful!");
+            toast.success("Sign in successful!");
 
-            return navigate("/dashboard");
+            if (result.role ===  ROLE.ADMIN) return navigate("/dashboard");
+
+            return navigate("/");
         } catch (error) {
-            console.error("Login error:", error);
+            console.error("Sign in error:", error);
             toast.error("Something went wrong. Please try again.");
         } finally {
             setIsSubmitting(false);

@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/navigation-menu.tsx";
 
 // ** types
-import type { TLink } from "@/types/layout";
+import type {TLink} from "@/types";
 
 interface NavListProps {
     list: TLink[];
