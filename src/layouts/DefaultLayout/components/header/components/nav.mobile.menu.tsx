@@ -1,3 +1,6 @@
+// ** Layouts
+import NavListMobile from "@/layouts/DefaultLayout/components/header/components/nav/nav.list.mobile.tsx";
+
 // ** Components
 import Logo from "@/components/common/logo.tsx";
 
@@ -35,7 +38,7 @@ const NavMobileMenu = () => {
                                 <CollapsibleTrigger asChild>
                                     <div
                                         className="w-full cursor-pointer flex items-center justify-between text-sm hover:text-amber-600 transition-colors">
-                                        {/*<span>{title}</span>*/}
+                                        Dịch vụ
                                         <ChevronRight className="size-4 transition-transform group-data-[state=open]:rotate-90"/>
                                     </div>
                                 </CollapsibleTrigger>
@@ -46,7 +49,7 @@ const NavMobileMenu = () => {
                                             <Link
                                                 key={index}
                                                 to={item.href}
-                                                className="text-[13px] text-gray-600 hover:text-amber-500 transition-colors"
+                                                className="text-[13px] text-gray-600 hover:text-primary transition-colors"
                                             >
                                                 {item.title}
                                             </Link>
@@ -54,7 +57,7 @@ const NavMobileMenu = () => {
                                     </div>
                                 </CollapsibleContent>
                             </Collapsible>
-                            {/*<NavListMobile list={listNav}/>*/}
+                            <NavListMobile list={listNav}/>
                         </nav>
                     )}
                 </div>

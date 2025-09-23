@@ -21,6 +21,7 @@ function AppRoutes() {
     return (
         <Router>
             <Routes>
+                {/* Admin route */}
                 <Route
                     path="/dashboard"
                     element={
@@ -29,11 +30,15 @@ function AppRoutes() {
                         </ProtectedRoute>
                     }
                 />
+                {/* End Admin route */}
 
+                {/* Public route */}
                 <Route element={<DefaultLayout/>}>
                     <Route index path="/" element={<Home/>}/>
                 </Route>
+                {/* End Public route */}
 
+                {/* Auth Route*/}
                 <Route
                     index
                     path="/sign-in"
@@ -51,6 +56,7 @@ function AppRoutes() {
                         </ProtectedRoute>
                     }
                 />
+                {/* End Auth Route*/}
             </Routes>
         </Router>
     );

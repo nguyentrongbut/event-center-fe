@@ -9,9 +9,10 @@ import {
 
 // ** types
 import type {TLink} from "@/types";
+import type {TEvent} from "@/types/data";
 
 interface NavListProps {
-    list: TLink[];
+    list: TLink[] | TEvent[];
     variant?: "default" | "dropdown";
 }
 

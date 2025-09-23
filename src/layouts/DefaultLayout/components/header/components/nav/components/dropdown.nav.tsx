@@ -13,9 +13,10 @@ import {
 
 // ** services
 import {getListEvent} from "@/services/events";
+import type {TEvent} from "@/types/data";
 
 const DropdownNav = () => {
-    const [listNavEvent, setListNavEvent] = useState([])
+    const [listNavEvent, setListNavEvent] = useState<TEvent[] | null>([])
 
     useEffect(() => {
         const fetchListEvent = async () => {
@@ -39,7 +40,7 @@ const DropdownNav = () => {
             </NavigationMenuTrigger>
             <NavigationMenuContent>
                 <div className="grid w-[180px]">
-                    <NavList list={listNavEvent} variant="dropdown"></NavList>
+                    <NavList list={listNavEvent || []} variant="dropdown"></NavList>
                 </div>
             </NavigationMenuContent>
         </NavigationMenuItem>

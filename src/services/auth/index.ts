@@ -9,10 +9,10 @@ import axios from "axios";
 import {CONFIG_API} from "@/configs/api.ts";
 
 // ** utils
-import {setCookie} from "@/utils/cookieUtils.ts";
+import {deleteCookie, getCookie, setCookie} from "@/utils/cookieUtils.ts";
 
 // ** types
-import type {TSignIn} from "@/types/data";
+import type {TProfile, TProfileAPI, TSignIn} from "@/types/data";
 
 export async function signIn(values: SignInForm) {
     try {
@@ -22,7 +22,7 @@ export async function signIn(values: SignInForm) {
 
         if (!data) return null;
 
-        const {id, role, token } = data;
+        const {id, role, token} = data;
 
         const infoUser = JSON.stringify({id, role, token})
 
@@ -51,9 +51,36 @@ export async function signUp(values: SignUpForm) {
 }
 
 export async function getProfile() {
-    return null
+    try {
+        const userCookie = getCookie("ECTA-info");
+        const userInfo: TSignIn | null = userCookie ? JSON.parse(userCookie) : null;
+
+        if (!userInfo?.id) return null
+
+        const { data } = await axios.get<TProfileAPI>(`${CONFIG_API.AUTH.INDEX}/${userInfo.id}`);
+
+        const payload: TProfile = {
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            avatar: data.avatar,
+            phone: data.phone,
+            address: data.address,
+        };
+
+        return payload;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
 }
 
 export async function logout() {
-    return true
+    try {
+        deleteCookie('ECTA-info')
+        return true
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
 }

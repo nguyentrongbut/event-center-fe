@@ -2,7 +2,7 @@
 import {useEffect, useState} from "react";
 
 // ** React router
-import {Link, useNavigate } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 // ** Layouts
 import NavMobileMenu from "@/layouts/DefaultLayout/components/header/components/nav.mobile.menu.tsx";
@@ -29,14 +29,20 @@ import {Calendar, LogOut, Phone, User} from "lucide-react";
 // ** Service
 import {getProfile, logout} from "@/services/auth";
 
+// ** types
+import type {TProfile} from "@/types/data";
+import toast from "react-hot-toast";
+
+// ** Hooks
+import useTailwindBreakpoints from "@/hooks/useTailwindBreakpoints.tsx";
+
 
 const Header = () => {
 
     const navigate = useNavigate();
+    const {isLg} = useTailwindBreakpoints()
 
-
-
-    const [infoProfile, setInfoProfile] = useState(null)
+    const [infoProfile, setInfoProfile] = useState<TProfile | null>(null)
     useEffect(() => {
 
         const fetchInfoProfile = async () => {
@@ -54,7 +60,11 @@ const Header = () => {
     const handleLogout = async () => {
         try {
             const result = await logout()
-            if (result) return navigate("/sign-in");
+            if (result) {
+                toast.success('Logout Successfully')
+                return navigate("/sign-in")
+            }
+
         } catch (error) {
             console.error("Failed to logout:", error)
         }
@@ -86,23 +96,66 @@ const Header = () => {
                         </Link>
                         {!infoProfile ? (
                             <Link to="/sign-in">
-                                <Button className="cursor-pointer" variant='secondary'>
+                                <Button variant='secondary'>
                                     <User className="size-4 mr-2"/>
                                     Sign in
                                 </Button>
                             </Link>
                         ) : (
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <Avatar className="cursor-pointer">
+                            isLg ? <DropdownMenu>
+                                <DropdownMenuTrigger>
+                                    <Avatar>
                                         <AvatarImage src="kdd" alt="@shadcn"/>
                                         <AvatarFallback>
                                             <img
                                                 src={infoProfile?.avatar || "/default-avatar.png"}
                                                 alt="@shadcn"
-                                                width={40}
-                                                height={40}
-                                                className="object-cover size-8"
+                                                width={50}
+                                                height={50}
+                                                className="object-cover size-9"
+                                            />
+                                        </AvatarFallback>
+                                    </Avatar>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent align="center" sideOffset={10}>
+                                    <p className="text-sm py-1.5 px-2 my-1 max-w-[123px]">
+                                        <b className="line-clamp-1 capitalize">
+                                            Hello {infoProfile?.name}!
+                                        </b>
+                                    </p>
+                                    <DropdownMenuItem asChild>
+                                        <TextIcon
+                                            to="/profile"
+                                            icon={<User className="size-4"/>}
+                                        >
+                                            Profile
+                                        </TextIcon>
+                                    </DropdownMenuItem>
+                                    <DropdownMenuItem>
+                                        <TextIcon icon={<LogOut className="size-4"/>} onClick={handleLogout}>
+                                            Logout
+                                        </TextIcon>
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu> : <span></span>
+                        )}
+                    </div>
+
+                    {/* Mobile Navigation */}
+
+                    {!isLg &&
+                        <div className='flex justify-center items-center gap-4'>
+                            <DropdownMenu>
+                                <DropdownMenuTrigger>
+                                    <Avatar>
+                                        <AvatarImage src="kdd" alt="@shadcn"/>
+                                        <AvatarFallback>
+                                            <img
+                                                src={infoProfile?.avatar || "/default-avatar.png"}
+                                                alt="@shadcn"
+                                                width={50}
+                                                height={50}
+                                                className="object-cover size-9"
                                             />
                                         </AvatarFallback>
                                     </Avatar>
@@ -128,13 +181,10 @@ const Header = () => {
                                     </DropdownMenuItem>
                                 </DropdownMenuContent>
                             </DropdownMenu>
-                        )}
-                    </div>
+                            <NavMobileMenu/>
+                        </div>
+                    }
 
-                    {/* Mobile Navigation */}
-                    <div className="lg:hidden">
-                        <NavMobileMenu/>
-                    </div>
                 </div>
             </Container>
         </header>
