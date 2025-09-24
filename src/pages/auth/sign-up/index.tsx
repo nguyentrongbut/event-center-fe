@@ -8,7 +8,7 @@ import {Helmet} from "react-helmet-async";
 import {useForm} from "react-hook-form";
 
 // ** React router
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 // ** zod
 import {z} from "zod";
@@ -224,15 +224,8 @@ const SignUp = () => {
                                                 onCheckedChange={field.onChange}
                                             />
                                         </FormControl>
-                                        <FormLabel className="text-sm">
-                                            I agree to the
-                                            <Link to="/terms" className="text-primary hover:underline mx-1">
-                                                Terms and Conditions
-                                            </Link>
-                                            and
-                                            <Link to="/privacy" className="text-primary hover:underline mx-1">
-                                                Privacy Policy
-                                            </Link>
+                                        <FormLabel className="text-sm cursor-pointer">
+                                            I agree to the terms and conditions and privacy policy
                                         </FormLabel>
                                     </div>
                                     <FormMessage/>

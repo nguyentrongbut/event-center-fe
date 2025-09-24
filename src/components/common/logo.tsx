@@ -9,6 +9,8 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 // ** utils
 import { cn } from "@/lib/utils";
+
+// ** Lucide Icon
 import { ChefHat } from "lucide-react";
 
 const logoVariants = cva("text-2xl font-bold text-slate-800", {
@@ -27,7 +29,7 @@ const iconVariants = {
     default: "size-10 text-primary",
 };
 
-const websiteName = "Ever Center";
+const websiteName = "Event Center";
 
 export interface LogoProps
     extends React.HTMLAttributes<HTMLSpanElement>,

@@ -1,8 +1,12 @@
 // ** react helmet
 import {Helmet} from "react-helmet-async";
 
-// ** shadcn ui
-import {Button} from "@/components/ui/button.tsx";
+// ** Pages
+import HeroSection from "@/pages/client/Home/components/hero.section.tsx";
+import ServicesSection from "@/pages/client/Home/components/services.section.tsx";
+import AboutSection from "@/pages/client/Home/components/about.section.tsx";
+import NewsLetterSection from "@/pages/client/Home/components/news.letter.section.tsx";
+import VenuesSection from "@/pages/client/Home/components/venues.section.tsx";
 
 function Home() {
     return (
@@ -14,8 +18,11 @@ function Home() {
                 <meta property="og:description" content="Experience a professional online party booking service." />
                 <meta name="keywords" content="party booking, event booking, catering, banquet, wedding, online party service" />
             </Helmet>
-            <h1 className='text-primary'>Event Center</h1>
-            <Button variant='secondary'>Click me!</Button>
+            <HeroSection/>
+            <ServicesSection/>
+            <AboutSection/>
+            <VenuesSection/>
+            <NewsLetterSection/>
         </>
     )
 }

@@ -9,7 +9,7 @@ import {Button} from "@/components/ui/button.tsx";
 import {Link} from "react-router-dom";
 
 // ** Configs
-import {contacts, services, socials, supports} from "@/configs/layout.tsx";
+import {contacts, services, socials, supports} from "@/configs/layouts.tsx";
 
 const Footer = () => {
     return (

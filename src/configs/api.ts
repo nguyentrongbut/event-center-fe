@@ -8,5 +8,8 @@ export const CONFIG_API = {
     },
     EVENT: {
         INDEX: `${BASE_URL}/events`,
+    },
+    VENUE: {
+        INDEX: `${BASE_URL}/venue`,
     }
 }

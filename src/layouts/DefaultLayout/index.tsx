@@ -9,7 +9,7 @@ const DefaultLayout = () => {
     return (
         <>
             <Header/>
-            <main className='min-h-[35vh]'>
+            <main className='min-h-[35vh] select-none'>
                 <Outlet />
             </main>
             <Footer/>

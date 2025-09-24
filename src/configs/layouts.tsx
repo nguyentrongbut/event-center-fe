@@ -54,7 +54,7 @@ export const supports = [
 
 export const contacts = [
     { icon: Phone, text: "0123 456 789", href: "tel:0123456789" },
-    { icon: Mail, text: "contact@everevent.com", href: "mailto:contact@everevent.com" },
+    { icon: Mail, text: "contact@evenetcenter.com", href: "mailto:contact@everevent.com" },
     { icon: MapPin, text: "123 Main St, HN", href: "https://maps.google.com/?q=123+Main+St+HN" },
 ]
 

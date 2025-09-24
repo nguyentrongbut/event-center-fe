@@ -12,6 +12,7 @@ import Nav from "@/layouts/DefaultLayout/components/header/components/nav";
 import Container from "@/components/common/container.tsx";
 import Logo from "@/components/common/logo.tsx";
 import {TextIcon} from "@/components/typography";
+import ImgWPlaceholder from "@/components/common/img.w.placeholder.tsx";
 
 // ** Shadcn ui
 import {Button} from "@/components/ui/button.tsx";
@@ -24,7 +25,7 @@ import {
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar.tsx";
 
 // ** Lucide Icon
-import {Calendar, LogOut, Phone, User} from "lucide-react";
+import {Calendar, LogOut, User} from "lucide-react";
 
 // ** Service
 import {getProfile, logout} from "@/services/auth";
@@ -50,7 +51,7 @@ const UserDropdown = ({infoProfile, handleLogout}: IUserDropdownProps) => {
                                  alt={infoProfile?.name}
                     />
                     <AvatarFallback>
-                        <img
+                        <ImgWPlaceholder
                             src={infoProfile?.avatar || "/default-avatar.png"}
                             alt="@shadcn"
                             width={50}
@@ -128,40 +129,36 @@ const Header = () => {
                         <Nav/>
                     </div>
 
-                    {/* Action Buttons */}
-                    <div className="hidden md:flex items-center gap-4">
-                        <Link to="tel:0987654321"
-                              className="flex items-center cursor-pointer text-red-600 hover:text-red-800 mr-4">
-                            <Phone className="size-5 mr-2"/>
-                            Hotline
-                        </Link>
-                        <Link to="/booking">
-                            <Button className="bg-primary cursor-pointer">
-                                <Calendar className="size-4 mr-2"/>
-                                Book Event
-                            </Button>
-                        </Link>
-                        {!infoProfile ? (
-                            <Link to="/sign-in">
-                                <Button variant='secondary'>
-                                    <User className="size-4 mr-2"/>
-                                    Sign in
-                                </Button>
-                            </Link>
-                        ) : (
-                            isLg ? <UserDropdown infoProfile={infoProfile} handleLogout={handleLogout}/> : <span></span>
+                    <div className="flex justify-center items-center gap-8">
+                        {/* Action Buttons */}
+                        {isLg && (
+                            <div className="flex items-center gap-4">
+                                <Link to="/booking">
+                                    <Button className="bg-primary cursor-pointer">
+                                        <Calendar className="size-4 mr-2"/>
+                                        Book Event
+                                    </Button>
+                                </Link>
+
+                                {!infoProfile ? (
+                                    <Link to="/sign-in">
+                                        <Button variant="secondary">
+                                            <User className="size-4 mr-2"/>
+                                            Sign in
+                                        </Button>
+                                    </Link>
+                                ) : (
+                                    <UserDropdown
+                                        infoProfile={infoProfile as TProfile}
+                                        handleLogout={handleLogout}
+                                    />
+                                )}
+                            </div>
                         )}
+
+                        {/* Mobile Navigation */}
+                        {!isLg && <NavMobileMenu/>}
                     </div>
-
-                    {/* Mobile Navigation */}
-
-                    {!isLg &&
-                        <div className='flex justify-center items-center gap-8'>
-                            <UserDropdown infoProfile={infoProfile as TProfile} handleLogout={handleLogout}/>
-                            <NavMobileMenu/>
-                        </div>
-                    }
-
                 </div>
             </Container>
         </header>

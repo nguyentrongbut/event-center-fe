@@ -49,3 +49,21 @@ export type TEvent = {
     images: string[],
     hot: boolean,
 }
+
+export type TVenue = {
+    id: number,
+    name: string,
+    slug: string,
+    description: string,
+    area: string,
+    people: number,
+    rooms: TRoom[],
+    image: string,
+    heroBanners: string[],
+    thumbnailImages: string[],
+    galleryImages: string[],
+    address: string,
+    open: string,
+    close: string,
+    days: string[],
+}

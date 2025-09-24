@@ -8,7 +8,7 @@ import {Helmet} from "react-helmet-async";
 import {useForm} from "react-hook-form";
 
 // ** React router
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 // ** zod
 import {z} from "zod";
@@ -69,7 +69,7 @@ const SignIn = () => {
             }
             toast.success("Sign in successful!");
 
-            if (result.role ===  ROLE.ADMIN) return navigate("/dashboard");
+            if (result.role === ROLE.ADMIN) return navigate("/dashboard");
 
             return navigate("/");
         } catch (error) {
@@ -132,11 +132,6 @@ const SignIn = () => {
                                 </FormItem>
                             )}
                         />
-                        <div className="flex items-center justify-end mb-3">
-                            <Link to="/forgot-password" className="text-sm text-[#4E545F] hover:text-black">
-                                Forgot password?
-                            </Link>
-                        </div>
                         <Button type="submit" size='full' isLoading={isSubmitting} disabled={isSubmitting}>
                             Sign In
                         </Button>
