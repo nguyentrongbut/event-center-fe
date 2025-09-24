@@ -30,7 +30,7 @@ const DishCardItem = ({id, name}: { id: number, name: string }) => {
 }
 
 const Dish = () => {
-    const [listDish, setListDish] = useState<TDish[] | null>([])
+    const [listDish, setListDish] = useState<TDish[]>([])
 
     useEffect(() => {
         const fetchListDish = async () => {

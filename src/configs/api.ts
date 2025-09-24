@@ -14,5 +14,8 @@ export const CONFIG_API = {
     },
     DISH: {
         INDEX: `${BASE_URL}/dish`,
+    },
+    MENU: {
+        INDEX: `${BASE_URL}/menus`,
     }
-}
+} as const

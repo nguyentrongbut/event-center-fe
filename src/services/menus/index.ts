@@ -5,15 +5,17 @@ import axios from "axios";
 import {CONFIG_API} from "@/configs/api.ts";
 
 // ** types
-// TDish,
+// TMenu,
 import type {TSignIn} from "@/types/data";
 
 // ** utils
 import {getCookie} from "@/utils/cookieUtils.ts";
 
-export async function getListDish() {
+const url = CONFIG_API.MENU.INDEX
+
+export async function getListMenu() {
     // try {
-    //     const response: TDish[] = await axios.get(CONFIG_API.DISH.INDEX);
+    //     const response: TMenu[] = await axios.get(url);
     //
     //     return response;
     // } catch (error) {
@@ -21,17 +23,24 @@ export async function getListDish() {
     // }
     return [
         {
-            "id": 2,
-            "name": "Gà nướng mật ong"
-        },
-        {
-            "id": 3,
-            "name": "Gà chiên mắm 2"
+            "id": 1,
+            "name": "Set 1",
+            "price": 200000,
+            "dishes": [
+                {
+                    "id": 2,
+                    "name": "Gà nướng mật ong"
+                },
+                {
+                    "id": 3,
+                    "name": "Gà chiên mắm 2"
+                }
+            ]
         }
     ]
 }
 
-export async function deleteDish(id: number) {
+export async function createMenu(name: string, dishIds: number[], price: number) {
     const userCookie = getCookie("ECTA-info");
     const userInfo: TSignIn = userCookie ? JSON.parse(userCookie) : null;
 
@@ -43,31 +52,7 @@ export async function deleteDish(id: number) {
     const {token} = userInfo;
 
     try {
-        const response = await axios.delete(`${CONFIG_API.DISH.INDEX}/${id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        });
-
-        return response.data;
-    } catch (error) {
-        console.error("Failed to delete dish:", error);
-    }
-}
-
-export async function createDish(name: string) {
-    const userCookie = getCookie("ECTA-info");
-    const userInfo: TSignIn = userCookie ? JSON.parse(userCookie) : null;
-
-    if (!userInfo) {
-        console.error("No user info found in cookie");
-        return false;
-    }
-
-    const {token} = userInfo;
-
-    try {
-        const response = await axios.post(`${CONFIG_API.DISH.INDEX}`, {name}, {
+        const response = await axios.post(`${url}`, {name, dishIds, price}, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -79,7 +64,7 @@ export async function createDish(name: string) {
     }
 }
 
-export async function updateDish(id: number, name: string) {
+export async function updateMenu(id: number, name: string, dishIds: number[], price: number) {
     const userCookie = getCookie("ECTA-info");
     const userInfo: TSignIn = userCookie ? JSON.parse(userCookie) : null;
 
@@ -91,7 +76,7 @@ export async function updateDish(id: number, name: string) {
     const {token} = userInfo;
 
     try {
-        const response = await axios.patch(`${CONFIG_API.DISH.INDEX}/${id}`, {name}, {
+        const response = await axios.patch(`${url}/${id}`, {name, dishIds, price}, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -100,5 +85,30 @@ export async function updateDish(id: number, name: string) {
         return response.data;
     } catch (error) {
         console.log(error);
+    }
+}
+
+export async function deleteMenu(id: number) {
+
+    const userCookie = getCookie("ECTA-info");
+    const userInfo: TSignIn = userCookie ? JSON.parse(userCookie) : null;
+
+    if (!userInfo) {
+        console.error("No user info found in cookie");
+        return false;
+    }
+
+    const {token} = userInfo;
+
+    try {
+        const response = await axios.delete(`${url}/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        return response.data;
+    } catch (error) {
+        console.error("Failed to delete menu:", error);
     }
 }

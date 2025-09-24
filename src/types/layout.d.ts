@@ -10,3 +10,8 @@ export type TNavItem = {
     icon: React.ElementType
     children?: { title: string; url: string }[]
 }
+
+export type TOption = {
+    value: number,
+    label: string,
+}

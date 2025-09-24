@@ -19,6 +19,8 @@ import SignUp from "@/pages/auth/sign-up";
 // ** Admin Pages
 import Dashboard from "@/pages/admin/dashboard";
 import Dish from "@/pages/admin/dish";
+import Menu from "@/pages/admin/menu";
+
 
 function AppRoutes() {
     return (
@@ -34,6 +36,7 @@ function AppRoutes() {
                 >
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path='/dashboard/menu/dish' element={<Dish/>}/>
+                    <Route path='/dashboard/menu' element={<Menu/>}/>
                 </Route>
                 {/* End Admin route */}
 

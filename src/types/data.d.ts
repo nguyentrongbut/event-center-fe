@@ -26,14 +26,14 @@ export type TProfileAPI = TProfile & {
 };
 
 export type TMenu = {
-    id?: number,
+    id: number,
     name: string,
     price: number,
     dishes: TDish[],
 }
 
 export type TDish = {
-    id?: number,
+    id: number,
     name: string,
 }
 
