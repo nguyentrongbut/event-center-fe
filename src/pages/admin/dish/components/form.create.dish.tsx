@@ -25,7 +25,7 @@ interface FormCreateDishProps {
 }
 
 const formSchema = z.object({
-    name: z.string().min(1, 'Tên món ăn không được để trống'),
+    name: z.string().min(1, "Dish name is required"),
 });
 
 export type CreateDishForm = z.infer<typeof formSchema>;
@@ -61,7 +61,7 @@ const FormCreateDish = ({ onSuccess }: FormCreateDishProps) => {
             <form
                 autoComplete="off"
                 onSubmit={form.handleSubmit((values) => onSubmit(values))}
-                className="space-y-4 mt-2">
+                className="space-y-1.5 mt-2">
                 <FormField
                     control={form.control}
                     name="name"

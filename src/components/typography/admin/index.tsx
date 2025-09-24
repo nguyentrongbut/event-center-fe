@@ -1,0 +1,1 @@
+export { default as HeadingAdmin } from './heading.admin.tsx'

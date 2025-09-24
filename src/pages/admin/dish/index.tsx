@@ -1,12 +1,16 @@
 // ** React
 import {useEffect, useState} from "react";
 
+// ** Components
+import {HeadingAdmin} from "@/components/typography/admin";
+import ContainerAdmin from "@/components/common/admin/container.admin.tsx";
+
 // ** Shadcn ui
 import {Card} from "@/components/ui/card";
 
 // ** Pages
-import ContainerAdmin from "@/pages/admin/components/container.admin.tsx";
 import ActionDish from "@/pages/admin/dish/components/action.dish.tsx";
+import DialogCreateDish from "@/pages/admin/dish/components/dialog.create.dish.tsx";
 
 // ** Services
 import {getListDish} from "@/services/dishes";
@@ -24,7 +28,6 @@ const DishCardItem = ({id, name}: { id: number, name: string }) => {
         </Card>
     )
 }
-
 
 const Dish = () => {
     const [listDish, setListDish] = useState<TDish[] | null>([])
@@ -54,6 +57,10 @@ const Dish = () => {
 
     return (
         <ContainerAdmin>
+            <div className="flex justify-between items-center mb-4">
+                <HeadingAdmin>Lish Dish</HeadingAdmin>
+                <DialogCreateDish/>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {listDish?.map((dish) => (
                     <DishCardItem key={dish.id} id={dish.id!} name={dish.name}/>

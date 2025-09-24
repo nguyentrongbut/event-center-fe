@@ -5,19 +5,27 @@ import axios from "axios";
 import {CONFIG_API} from "@/configs/api.ts";
 
 // ** types
-import type {TDish, TSignIn} from "@/types/data";
+// TDish,
+import type { TSignIn} from "@/types/data";
 
 // ** utils
 import {getCookie} from "@/utils/cookieUtils.ts";
 
 export async function getListDish() {
-    try {
-        const response: TDish[] = await axios.get(CONFIG_API.DISH.INDEX);
-
-        return response;
-    } catch (error) {
-        console.error(error);
-    }
+    // try {
+    //     const response: TDish[] = await axios.get(CONFIG_API.DISH.INDEX);
+    //
+    //     return response;
+    // } catch (error) {
+    //     console.error(error);
+    // }
+    return [
+        {
+            "id": 2,
+            "name": "Gà nướng mật ong",
+            "deleted": false
+        }
+    ]
 }
 
 export async function deleteDish(id: number) {

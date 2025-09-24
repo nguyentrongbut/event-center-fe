@@ -1,5 +1,7 @@
+// ** Components
+import ContainerAdmin from "@/components/common/admin/container.admin.tsx";
+
 // ** Pages
-import ContainerAdmin from "@/pages/admin/components/container.admin.tsx";
 import StatsCards from "@/pages/admin/dashboard/components/stats.cards.tsx";
 
 const Dashboard = () => {

@@ -71,7 +71,7 @@ const FormEditDish = ({ id, name, onSuccess }: FormEditDishProps) => {
         <Form {...form}>
             <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-4 mt-2"
+                className="space-y-1.5 mt-2"
                 autoComplete="off"
             >
                 <FormField

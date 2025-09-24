@@ -1,6 +1,9 @@
 // ** React
 import {useState} from "react";
 
+// ** Components
+import DialogDelete from "@/components/common/admin/dialog.delete.tsx";
+
 // ** Shadcn ui
 import {
     DropdownMenu,
@@ -16,7 +19,6 @@ import {Edit, MoreHorizontal, Trash2} from "lucide-react";
 
 // ** Pages
 import DialogEditDish from "@/pages/admin/dish/components/dialog.edit.dish.tsx";
-import DialogDelete from "@/pages/admin/components/dialog.delete.tsx";
 
 // ** services
 import {deleteDish} from "@/services/dishes";
