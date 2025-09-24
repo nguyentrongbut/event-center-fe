@@ -11,5 +11,8 @@ export const CONFIG_API = {
     },
     VENUE: {
         INDEX: `${BASE_URL}/venue`,
+    },
+    DISH: {
+        INDEX: `${BASE_URL}/dish`,
     }
 }

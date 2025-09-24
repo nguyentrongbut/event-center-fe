@@ -11,11 +11,14 @@ import AdminLayout from "@/layouts/AdminLayout";
 // ** Components
 import {ProtectedRoute} from "@/components/AppRoutes/protected.route.tsx";
 
-// ** Pages
+// ** Default Pages
 import Home from "@/pages/client/Home";
 import SignIn from "@/pages/auth/sign-in";
 import SignUp from "@/pages/auth/sign-up";
+
+// ** Admin Pages
 import Dashboard from "@/pages/admin/dashboard";
+import Dish from "@/pages/admin/dish";
 
 function AppRoutes() {
     return (
@@ -30,6 +33,7 @@ function AppRoutes() {
                     }
                 >
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path='/dashboard/menu/dish' element={<Dish/>}/>
                 </Route>
                 {/* End Admin route */}
 
