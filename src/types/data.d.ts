@@ -77,3 +77,13 @@ export type TService = {
     description: string,
     images: string[],
 }
+
+export type TRoom = {
+    id: number,
+    name: string,
+    area: string,
+    price: number,
+    people: number,
+    tableNumber: number,
+    image: string,
+}

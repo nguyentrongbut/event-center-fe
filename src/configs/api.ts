@@ -20,5 +20,8 @@ export const CONFIG_API = {
     },
     SERVICE: {
         INDEX: `${BASE_URL}/service`,
+    },
+    ROOM: {
+        INDEX: `${BASE_URL}/room`,
     }
 }

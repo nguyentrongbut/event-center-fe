@@ -25,7 +25,10 @@ import Service from "@/pages/admin/service";
 import EditService from "@/pages/admin/service/edit";
 import CreateService from "@/pages/admin/service/create";
 import DetailService from "@/pages/admin/service/view";
-
+// Room Page
+import Room from "@/pages/admin/room";
+import CreateRoom from "@/pages/admin/room/create";
+import EditRoom from "@/pages/admin/room/edit";
 
 function AppRoutes() {
     return (
@@ -48,6 +51,11 @@ function AppRoutes() {
                     <Route path='/dashboard/service/view/:id' element={<DetailService/>}/>
                     <Route path='/dashboard/service/edit/:id' element={<EditService/>}/>
                     <Route path='/dashboard/service/create' element={<CreateService/>}/>
+
+                    {/*  Room  */}
+                    <Route path='dashboard/venue/room' element={<Room/>}/>
+                    <Route path='/dashboard/venue/room/create' element={<CreateRoom/>}/>
+                    <Route path='/dashboard/venue/room/edit/:id' element={<EditRoom/>}/>
                 </Route>
                 {/* End Admin route */}
 
