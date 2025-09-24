@@ -156,11 +156,11 @@ export default function MultiSelect({
                 <Button
                     ref={triggerRef}
                     variant="outline"
-                    className={`w-full justify-between text-left items-center px-3 py-2 text-sm ${
+                    className={`w-full justify-between text-left items-center px-3 py-2 text-sm border-[#191720] ${
                         disabled
                             ? 'bg-muted text-muted-foreground cursor-not-allowed'
                             : 'hover:bg-accent'
-                    } ${open ? 'ring-2 ring-ring ring-offset-2' : ''} min-h-[44px]`}
+                    }  min-h-[44px]`}
                     onClick={() => !disabled && setOpen(!open)}
                     disabled={disabled}
                     type="button"

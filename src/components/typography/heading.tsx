@@ -14,6 +14,7 @@ const headingVariants = cva('font-bold text-[34px] sm:text-[44px] roboto-serif',
     variants: {
         size: {
             default: 'text-[34px] sm:text-[44px]',
+            lg: 'text-4xl font-bold text-slate-800'
         },
         type: {
             default: 'roboto-serif',

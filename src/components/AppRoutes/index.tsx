@@ -20,6 +20,11 @@ import SignUp from "@/pages/auth/sign-up";
 import Dashboard from "@/pages/admin/dashboard";
 import Dish from "@/pages/admin/dish";
 import Menu from "@/pages/admin/menu";
+// Service Page
+import Service from "@/pages/admin/service";
+import EditService from "@/pages/admin/service/edit";
+import CreateService from "@/pages/admin/service/create";
+import DetailService from "@/pages/admin/service/view";
 
 
 function AppRoutes() {
@@ -37,6 +42,12 @@ function AppRoutes() {
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path='/dashboard/menu/dish' element={<Dish/>}/>
                     <Route path='/dashboard/menu' element={<Menu/>}/>
+
+                    {/* Service */}
+                    <Route path='/dashboard/service' element={<Service/>}/>
+                    <Route path='/dashboard/service/view/:id' element={<DetailService/>}/>
+                    <Route path='/dashboard/service/edit/:id' element={<EditService/>}/>
+                    <Route path='/dashboard/service/create' element={<CreateService/>}/>
                 </Route>
                 {/* End Admin route */}
 

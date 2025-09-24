@@ -9,8 +9,12 @@ type ImgWPlaceholderProps = React.ImgHTMLAttributes<HTMLImageElement> & {
 };
 
 const isValidImageSrc = (src?: string): boolean => {
-    return typeof src === "string" && (src.startsWith("/") || src.startsWith("http"));
+    return (
+        typeof src === "string" &&
+        (src.startsWith("/") || src.startsWith("http") || src.startsWith("blob:"))
+    );
 };
+
 
 const ImgWPlaceholder: React.FC<ImgWPlaceholderProps> = ({
                                                              src,

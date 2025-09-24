@@ -67,3 +67,13 @@ export type TVenue = {
     close: string,
     days: string[],
 }
+
+
+export type TService = {
+    id: number,
+    name: string,
+    icon: string,
+    price: number,
+    description: string,
+    images: string[],
+}

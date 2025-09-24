@@ -90,7 +90,7 @@ const FormEditMenu = ({ id, onSuccess, name, price, dishesInMenu, allDishes }: F
             <form
                 onSubmit={form.handleSubmit(onSubmit)}
                 autoComplete="off"
-                className="space-y-6 mt-6"
+                className="space-y-2.5 mt-6"
             >
                 <FormField
                     control={form.control}
