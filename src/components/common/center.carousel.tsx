@@ -1,6 +1,9 @@
 // ** React
 import React, {useState} from 'react';
 
+// ** React router
+import {Link} from "react-router-dom";
+
 // ** Lucide Icon
 import {ChevronLeft, ChevronRight, MapPin, Users, Layout} from 'lucide-react';
 
@@ -10,7 +13,6 @@ import Container from '@/components/common/container';
 
 // ** types
 import type {TVenue} from "@/types/data";
-import {Link} from "react-router-dom";
 
 type CenterCarouselProps = {
     items: TVenue[];

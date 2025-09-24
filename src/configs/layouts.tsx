@@ -1,8 +1,19 @@
 // ** types
-import type {TLink} from "@/types/layout";
+import type {TLink, TNavItem} from "@/types/layout";
 
 // Lucide Icon
-import {Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter} from "lucide-react";
+import {
+    Calendar,
+    CalendarDays,
+    ClipboardList,
+    Facebook, Home,
+    Instagram,
+    Linkedin, List,
+    Mail,
+    MapPin,
+    Phone,
+    Twitter
+} from "lucide-react";
 
 // ** Header
 export const listNav: TLink[] = [
@@ -82,3 +93,73 @@ export const socials = [
 ]
 
 // ** End Footer
+
+//**  Dashboard
+// ** breadcrumb
+export const breadcrumbLabels: Record<string, string> = {
+    booking: "Booking",
+    event: "Event",
+    customer: "Customer",
+    venue: "Venue",
+    dish: "Dish",
+    menu: "Menu",
+    room: "Room",
+    view: "View",
+    service: "Service",
+    settings: "Settings",
+    reports: "Reports",
+    create: "Create",
+    edit: "Edit"
+};
+
+// ** sidebar
+export const MAIN_NAV: TNavItem[] = [
+    {
+        title: "Dashboard",
+        url: "/dashboard",
+        icon: Home,
+    },
+    {
+        title: "Bookings",
+        icon: CalendarDays,
+        children: [
+            { title: "All Bookings", url: "/dashboard/booking" },
+        ],
+    },
+    {
+        title: "Events",
+        icon: Calendar,
+        children: [
+            { title: "All Events", url: "/dashboard/event" },
+            { title: "Create New Event", url: "/dashboard/event/create" },
+        ],
+    },
+    {
+        title: "Venues",
+        icon: MapPin,
+        children: [
+            { title: "All Venues", url: "/dashboard/venue" },
+            { title: "Add Venue", url: "/dashboard/venue/create" },
+            { title: "All Rooms", url: "/dashboard/venue/room" },
+            { title: "Add Room", url: "/dashboard/venue/room/create" },
+        ],
+    },
+    {
+        title: "Services",
+        icon: ClipboardList,
+        children: [
+            { title: "All Services", url: "/dashboard/service" },
+            { title: "Add Service", url: "/dashboard/service/create" },
+        ],
+    },
+    {
+        title: "Menus",
+        icon: List,
+        children: [
+            { title: "All Menus", url: "/dashboard/menu" },
+            { title: "Dishes", url: "/dashboard/menu/dish" },
+        ],
+    }
+];
+//** End Dashboard
+

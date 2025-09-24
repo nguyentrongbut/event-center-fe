@@ -3,3 +3,10 @@ export type TLink = {
     href: string;
     type?: "default" | "dropdown";
 }
+
+export type TNavItem = {
+    title: string
+    url?: string
+    icon: React.ElementType
+    children?: { title: string; url: string }[]
+}

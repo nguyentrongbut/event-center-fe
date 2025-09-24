@@ -6,6 +6,7 @@ import {ROLE} from "@/configs/role.ts";
 
 // ** Layout
 import DefaultLayout from "@/layouts/DefaultLayout";
+import AdminLayout from "@/layouts/AdminLayout";
 
 // ** Components
 import {ProtectedRoute} from "@/components/AppRoutes/protected.route.tsx";
@@ -16,23 +17,23 @@ import SignIn from "@/pages/auth/sign-in";
 import SignUp from "@/pages/auth/sign-up";
 import Dashboard from "@/pages/admin/dashboard";
 
-
 function AppRoutes() {
     return (
         <Router>
             <Routes>
                 {/* Admin route */}
                 <Route
-                    path="/dashboard"
                     element={
                         <ProtectedRoute roles={[ROLE.ADMIN]}>
-                            <Dashboard/>
+                            <AdminLayout />
                         </ProtectedRoute>
                     }
-                />
+                >
+                    <Route path="/dashboard" element={<Dashboard />} />
+                </Route>
                 {/* End Admin route */}
 
-                {/* Public route */}
+                 {/*Public route*/}
                 <Route element={<DefaultLayout/>}>
                     <Route index path="/" element={<Home/>}/>
                 </Route>

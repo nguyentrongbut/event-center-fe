@@ -5,7 +5,7 @@ import AppRoutes from "@/components/AppRoutes";
 import {Toaster} from "react-hot-toast";
 
 // ** Css
-import './styles/index.css'
+import './index.css'
 
 function App() {
     return (

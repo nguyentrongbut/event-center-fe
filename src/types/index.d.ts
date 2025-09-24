@@ -1,4 +1,4 @@
 export {type} from './data'
-export {TLink} from './layout'
+export {TLink, TNavItem} from './layout'
 export {Breakpoints} from './breakpoints'
 export {TEventType} from './page'
