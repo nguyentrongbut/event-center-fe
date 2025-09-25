@@ -39,6 +39,9 @@ import Event from "@/pages/admin/event";
 import CreateEvent from "@/pages/admin/event/create";
 import EditEvent from "@/pages/admin/event/edit";
 import DetailEvent from "@/pages/admin/event/view";
+// Booking
+import Booking from "@/pages/admin/booking";
+
 
 function AppRoutes() {
     return (
@@ -78,6 +81,9 @@ function AppRoutes() {
                     <Route path='/dashboard/event/create' element={<CreateEvent/>}/>
                     <Route path='/dashboard/event/edit/:slug' element={<EditEvent/>}/>
                     <Route path='/dashboard/event/view/:slug' element={<DetailEvent/>}/>
+
+                    {/* Booking */}
+                    <Route path='/dashboard/booking' element={<Booking/>}/>
                 </Route>
                 {/* End Admin route */}
 

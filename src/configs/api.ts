@@ -23,5 +23,8 @@ export const CONFIG_API = {
     },
     ROOM: {
         INDEX: `${BASE_URL}/room`,
+    },
+    BOOKING: {
+        INDEX: `${BASE_URL}/booking`,
     }
 }
