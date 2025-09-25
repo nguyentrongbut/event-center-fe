@@ -6,6 +6,8 @@ import {CONFIG_API} from "@/configs/api.ts";
 
 // ** types
 import type {TSignIn} from "@/types/data";
+// ** Pages
+import type {BookingForm} from "@/pages/client/booking";
 
 // ** utils
 import {getCookie} from "@/utils/cookieUtils.ts";
@@ -125,6 +127,51 @@ export async function getListBooking() {
             "createdAt": "2025-07-02T14:58:59.448Z"
         }
     ]
+}
+
+export async function sendBooking(bookingForm: BookingForm) {
+    const {
+        userId,
+        eventType,
+        locationType,
+        venueId,
+        roomId,
+        customerAddress,
+        guestCount,
+        paymentMethod,
+        eventDate,
+        eventTime,
+        selectedMenu,
+        selectedAddOns,
+        customerInfo
+    } = bookingForm;
+
+    const payload = {
+        userId,
+        name: customerInfo.name,
+        email: customerInfo.email,
+        phone: customerInfo.phone,
+        eventDate,
+        eventTime,
+        eventId: eventType,
+        people: guestCount,
+        address: locationType === "customer" ? customerAddress : "",
+        paymentMethod,
+        roomId,
+        menuId: selectedMenu,
+        venueId,
+        serviceIds: selectedAddOns,
+        notes: customerInfo.notes,
+    };
+
+    try {
+        const response = await axios.post(url, payload);
+
+        return response.data;
+    } catch (error) {
+        console.error("Booking error:", error);
+        throw error;
+    }
 }
 
 export async function changeStatus(id: number, status?: string) {

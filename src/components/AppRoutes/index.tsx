@@ -11,11 +11,6 @@ import AdminLayout from "@/layouts/AdminLayout";
 // ** Components
 import {ProtectedRoute} from "@/components/AppRoutes/protected.route.tsx";
 
-// ** Default Pages
-import Home from "@/pages/client/Home";
-import SignIn from "@/pages/auth/sign-in";
-import SignUp from "@/pages/auth/sign-up";
-
 // ** Admin Pages
 import Dashboard from "@/pages/admin/dashboard";
 import Dish from "@/pages/admin/dish";
@@ -42,6 +37,14 @@ import DetailEvent from "@/pages/admin/event/view";
 // Booking
 import Booking from "@/pages/admin/booking";
 
+// ** Default Pages
+// Home
+import Home from "@/pages/client/Home";
+// Auth
+import SignIn from "@/pages/auth/sign-in";
+import SignUp from "@/pages/auth/sign-up";
+// Booking
+import BookingClient from "@/pages/client/booking";
 
 function AppRoutes() {
     return (
@@ -90,6 +93,7 @@ function AppRoutes() {
                  {/*Public route*/}
                 <Route element={<DefaultLayout/>}>
                     <Route index path="/" element={<Home/>}/>
+                    <Route index path="/booking" element={<BookingClient/>}/>
                 </Route>
                 {/* End Public route */}
 

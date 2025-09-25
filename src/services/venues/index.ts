@@ -55,7 +55,7 @@ export async function getListVenue() {
             "image": "https://res.cloudinary.com/dnj4p1bry/image/upload/v1751174452/glroom3_xvo3jh.jpg",
             "rooms": [
                 {
-                    "id": "68601c1ec00991799602c21f",
+                    "id": 1,
                     "name": "Phòng Star",
                     "image": "https://res.cloudinary.com/dnj4p1bry/image/upload/v1751129118/room_wyvfjy.jpg",
                     "area": "1320 m2",
@@ -140,7 +140,7 @@ export async function getListVenue() {
             "image": "https://res.cloudinary.com/dnj4p1bry/image/upload/v1751433868/snappr-S7twrJmc_1k-unsplash_u2qo1w.jpg",
             "rooms": [
                 {
-                    "id": "6864c237db3bb09fca706e3a",
+                    "id": 2,
                     "name": "phòng test",
                     "image": "https://res.cloudinary.com/dnj4p1bry/image/upload/v1751433783/snappr-S7twrJmc_1k-unsplash_ya6idz.jpg",
                     "area": "10",

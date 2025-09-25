@@ -35,3 +35,11 @@ export const eventTypes: TEventType[] = [
 
 // ** Venue (Create, update)
 export const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+// ** Booking
+export const steps = [
+    {number: 1, title: "Event Type & Location"},
+    {number: 2, title: "Time & Guests"},
+    {number: 3, title: "Menu & Services"},
+    {number: 4, title: "Information & Payment"},
+]
