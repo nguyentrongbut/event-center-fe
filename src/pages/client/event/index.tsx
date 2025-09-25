@@ -8,7 +8,7 @@ import {useParams} from "react-router";
 import Container from "@/components/common/container.tsx";
 import ContentSection from "@/components/page-section/content.section.tsx";
 import MenuSection from "@/components/common/menu.section.tsx";
-import HeaderSection from "@/components/common/hero.section.tsx";
+import HeaderSection from "@/components/common/header.section.tsx";
 
 // ** Types
 import type {TDetailEvent, TEvent, TService} from "@/types/data";
@@ -47,7 +47,7 @@ const EventClient = () => {
                 title={eventInfo.subName}
                 breadcrumbs={[
                     { label: "Home", href: "/" },
-                    { label: "Service", href: "/service" },
+                    { label: "Service" },
                     { label: eventInfo?.subName},
                 ]}
             />

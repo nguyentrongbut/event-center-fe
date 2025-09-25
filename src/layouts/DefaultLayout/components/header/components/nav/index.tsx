@@ -15,8 +15,8 @@ const Nav = () => {
     return (
         <NavigationMenu viewport={false}>
             <NavigationMenuList>
-                <DropdownNav/>
                 <NavList list={listNav}></NavList>
+                <DropdownNav/>
             </NavigationMenuList>
         </NavigationMenu>
     )

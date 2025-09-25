@@ -2,7 +2,7 @@
 import {useEffect, useState} from "react";
 
 // ** Components
-import HeaderSection from "@/components/common/hero.section.tsx";
+import HeaderSection from "@/components/common/header.section.tsx";
 import Container from "@/components/common/container.tsx";
 import MenuCard from "@/components/menu/menu.card.tsx";
 import NavMenuFood from "@/components/common/nav.menu.food.tsx";

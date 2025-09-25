@@ -18,10 +18,6 @@ import {
 // ** Header
 export const listNav: TLink[] = [
     {
-        title: 'About Us',
-        href: '/about-us',
-    },
-    {
         title: 'Venues',
         href: '/venue',
     },

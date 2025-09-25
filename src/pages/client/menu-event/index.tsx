@@ -2,7 +2,7 @@
 import {useParams} from "react-router";
 
 // ** Components
-import HeaderSection from "@/components/common/hero.section.tsx";
+import HeaderSection from "@/components/common/header.section.tsx";
 import NavMenuFood from "@/components/common/nav.menu.food.tsx";
 import Container from "@/components/common/container.tsx";
 import ListMenu from "@/components/menu/list.menu.tsx";

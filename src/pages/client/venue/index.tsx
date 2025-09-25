@@ -2,7 +2,7 @@
 import {useEffect, useState} from "react";
 
 // ** Components
-import HeaderSection from "@/components/common/hero.section.tsx";
+import HeaderSection from "@/components/common/header.section.tsx";
 import Container from "@/components/common/container.tsx";
 import TitleContent from "@/components/page-section/title.content.tsx";
 import CenterCarousel from "@/components/common/center.carousel.tsx";
