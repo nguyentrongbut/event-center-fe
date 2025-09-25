@@ -24,17 +24,35 @@ export async function getListMenu() {
     return [
         {
             "id": 1,
-            "name": "Set 1",
-            "price": 200000,
+            "name": "Menu 1",
+            "price": 129000,
             "dishes": [
-                {
-                    "id": 2,
-                    "name": "Gà nướng mật ong"
-                },
-                {
-                    "id": 3,
-                    "name": "Gà chiên mắm 2"
-                }
+                { "id": 1, "name": "Nộm sứa ngũ sắc" },
+                { "id": 2, "name": "Gà ta hấp lá chanh" },
+                { "id": 3, "name": "Nem hải sản Phú Quốc" },
+                { "id": 4, "name": "Ếch rang muối" },
+                { "id": 5, "name": "Bê tái chanh" },
+                { "id": 6, "name": "Cá lăng chiên hoàng bào" },
+                { "id": 7, "name": "Củ quả luộc chấm muối vừng" },
+                { "id": 8, "name": "Canh ngao nấu chua" },
+                { "id": 9, "name": "Cơm Tám" },
+                { "id": 10, "name": "Xôi Hoàng Phố" }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Menu 10",
+            "price": 400000,
+            "dishes": [
+                { "id": 1, "name": "Nộm sứa ngũ sắc" },
+                { "id": 3, "name": "Nem hải sản Phú Quốc" },
+                { "id": 4, "name": "Ếch rang muối" },
+                { "id": 5, "name": "Bê tái chanh" },
+                { "id": 6, "name": "Cá lăng chiên hoàng bào" },
+                { "id": 7, "name": "Củ quả luộc chấm muối vừng" },
+                { "id": 8, "name": "Canh ngao nấu chua" },
+                { "id": 9, "name": "Cơm Tám" },
+                { "id": 10, "name": "Xôi Hoàng Phố" }
             ]
         }
     ]

@@ -21,12 +21,44 @@ export async function getListDish() {
     // }
     return [
         {
+            "id": 1,
+            "name": "Nộm sứa ngũ sắc",
+        },
+        {
             "id": 2,
-            "name": "Gà nướng mật ong"
+            "name": "Gà ta hấp lá chanh",
         },
         {
             "id": 3,
-            "name": "Gà chiên mắm 2"
+            "name": "Nem hải sản Phú Quốc",
+        },
+        {
+            "id": 4,
+            "name": "Ếch rang muối",
+        },
+        {
+            "id": 5,
+            "name": "Bê tái chanh",
+        },
+        {
+            "id": 6,
+            "name": "Cá lăng chiên hoàng bào",
+        },
+        {
+            "id": 7,
+            "name": "Củ quả luộc chấm muối vừng",
+        },
+        {
+            "id": 8,
+            "name": "Canh ngao nấu chua",
+        },
+        {
+            "id": 99,
+            "name": "Cơm Tám",
+        },
+        {
+            "id": 10,
+            "name": "Xôi Hoàng Phố",
         }
     ]
 }

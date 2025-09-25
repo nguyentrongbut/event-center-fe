@@ -27,12 +27,22 @@ export async function getListRoom() {
     return [
         {
             "id": 1,
-            "name": "Room A",
-            "area": "VIP",
-            "people": 10,
-            "tableNumber": 5,
-            "image": "https://res.cloudinary.com/dnj4p1bry/image/upload/v1758705431/gav1zlzlgy0xonrplxii.png",
-            "price": 200.00,
+            "name": "phòng test",
+            "area": "10",
+            "people": 2,
+            "table": 2,
+            "image": "https://res.cloudinary.com/dnj4p1bry/image/upload/v1751433783/snappr-S7twrJmc_1k-unsplash_ya6idz.jpg",
+            "price": 500000,
+            "deleted": false
+        },
+        {
+            "id": 2,
+            "name": "room test",
+            "area": "200",
+            "people": 20,
+            "table": 100,
+            "image": "https://res.cloudinary.com/dnj4p1bry/image/upload/v1751468954/snappr-S7twrJmc_1k-unsplash_svsvdt.jpg",
+            "price": 500000,
             "deleted": false
         }
     ]
@@ -49,12 +59,12 @@ export async function getDetailRoom(id: number) {
     console.log(id)
     return {
         "id": 1,
-        "name": "Room A",
-        "area": "VIP",
-        "people": 10,
-        "tableNumber": 5,
-        "image": "https://res.cloudinary.com/dnj4p1bry/image/upload/v1758705431/gav1zlzlgy0xonrplxii.png",
-        "price": 200.00,
+        "name": "phòng test",
+        "area": "10",
+        "people": 2,
+        "table": 2,
+        "image": "https://res.cloudinary.com/dnj4p1bry/image/upload/v1751433783/snappr-S7twrJmc_1k-unsplash_ya6idz.jpg",
+        "price": 500000,
         "deleted": false
     }
 }

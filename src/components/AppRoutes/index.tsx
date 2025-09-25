@@ -34,6 +34,8 @@ import Venue from "@/pages/admin/venue";
 import DetailVenue from "@/pages/admin/venue/view";
 import CreateVenue from "@/pages/admin/venue/create";
 import EditVenue from "@/pages/admin/venue/edit";
+// Event
+import Event from "@/pages/admin/event";
 
 function AppRoutes() {
     return (
@@ -67,6 +69,11 @@ function AppRoutes() {
                     <Route path='dashboard/venue/room' element={<Room/>}/>
                     <Route path='/dashboard/venue/room/create' element={<CreateRoom/>}/>
                     <Route path='/dashboard/venue/room/edit/:id' element={<EditRoom/>}/>
+
+                    {/*  Event */}
+                    <Route path='dashboard/event' element={<Event/>}/>
+                    <Route path='/dashboard/event/create' element={<Event/>}/>
+                    <Route path='/dashboard/event/edit/:id' element={<Event/>}/>
                 </Route>
                 {/* End Admin route */}
 
