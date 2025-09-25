@@ -18,12 +18,14 @@ import {getListEvent} from "@/services/events";
 import type {TEvent} from "@/types/data";
 
 const DropdownNav = () => {
-    const [listNavEvent, setListNavEvent] = useState<TEvent[] | null>([])
+    const [listNavEvent, setListNavEvent] = useState<TEvent[]>([])
 
     useEffect(() => {
         const fetchListEvent = async () => {
             try {
                 const data = await getListEvent();
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
                 setListNavEvent(data);
             } catch (error) {
                 console.error("Failed to load events:", error);

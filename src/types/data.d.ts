@@ -50,6 +50,12 @@ export type TEvent = {
     hot: boolean,
 }
 
+export type TDetailEvent = {
+    eventInfo: TEvent
+    menus: TMenu[]
+    services: TService[]
+}
+
 export type TVenue = {
     id: number,
     name: string,

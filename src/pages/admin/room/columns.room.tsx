@@ -69,7 +69,7 @@ export const columnsRoom: ColumnDef<TRoom>[] = [
             const price: number = row.getValue("price");
 
             return (
-                <div className="text-amber-600">
+                <div className="text-primary">
                     {formatCurrency(price)}
                 </div>
             );

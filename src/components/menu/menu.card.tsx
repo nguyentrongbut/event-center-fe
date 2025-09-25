@@ -9,11 +9,11 @@ import type {TDish, TMenu} from "@/types/data";
 
 
 type TMenuProps = TMenu & {
-    hover?: boolean;
+    isAdminView?: boolean;
     listDish?: TDish[];
 };
 
-const MenuCard = ({ id, name, price, dishes, hover, listDish }: TMenuProps) => {
+const MenuCard = ({ id, name, price, dishes, isAdminView = false, listDish }: TMenuProps) => {
     return (
         <div className="relative group rounded-2xl overflow-hidden shadow-md transition hover:shadow-lg">
             <div
@@ -36,7 +36,7 @@ const MenuCard = ({ id, name, price, dishes, hover, listDish }: TMenuProps) => {
                     </div>
                 </div>
 
-                <div className="text-amber-600 text-xl italic font-semibold mb-2">
+                <div className="text-primary text-xl italic font-semibold mb-2">
                     {formatCurrency(price)} / people
                 </div>
 
@@ -54,7 +54,7 @@ const MenuCard = ({ id, name, price, dishes, hover, listDish }: TMenuProps) => {
                 </div>
             </div>
 
-            {hover && (
+            {isAdminView && (
                 <div
                     className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white border rounded-md p-2 shadow-lg flex flex-col gap-2"
                 >

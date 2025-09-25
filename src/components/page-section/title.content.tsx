@@ -48,7 +48,7 @@ const TitleContent: React.FC<TitleContentProps> = ({
                 {desc}
             </p>
             {price && (
-                <p className="text-amber-600 mt-4">Giá dịch vụ: {formatCurrency(price!)}</p>
+                <p className="text-primary mt-4">Giá dịch vụ: {formatCurrency(price!)}</p>
             )}
         </div>
     );

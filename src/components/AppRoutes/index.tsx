@@ -36,6 +36,9 @@ import CreateVenue from "@/pages/admin/venue/create";
 import EditVenue from "@/pages/admin/venue/edit";
 // Event
 import Event from "@/pages/admin/event";
+import CreateEvent from "@/pages/admin/event/create";
+import EditEvent from "@/pages/admin/event/edit";
+import DetailEvent from "@/pages/admin/event/view";
 
 function AppRoutes() {
     return (
@@ -72,8 +75,9 @@ function AppRoutes() {
 
                     {/*  Event */}
                     <Route path='dashboard/event' element={<Event/>}/>
-                    <Route path='/dashboard/event/create' element={<Event/>}/>
-                    <Route path='/dashboard/event/edit/:id' element={<Event/>}/>
+                    <Route path='/dashboard/event/create' element={<CreateEvent/>}/>
+                    <Route path='/dashboard/event/edit/:slug' element={<EditEvent/>}/>
+                    <Route path='/dashboard/event/view/:slug' element={<DetailEvent/>}/>
                 </Route>
                 {/* End Admin route */}
 

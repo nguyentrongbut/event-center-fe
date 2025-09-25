@@ -59,7 +59,7 @@ const Menu = () => {
             </div>
             <div className="-mx-4 mt-6">
                 <div className="relative">
-                    <ListMenu menus={listMenu} listDish={listDish}/>
+                    <ListMenu isAdminView menus={listMenu} listDish={listDish}/>
                 </div>
             </div>
         </ContainerAdmin>
