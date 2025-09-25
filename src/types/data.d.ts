@@ -114,3 +114,24 @@ export type TBooking = {
     status: string,
     createdAt: string,
 }
+
+export type TDetailBooking = {
+    id: string,
+    orderCode: string,
+    room: TRoom,
+    venue: TVenue,
+    name: string,
+    phone: string,
+    email: string,
+    event: TEvent,
+    people: number,
+    address: string,
+    paymentMethod: string,
+    eventTime: string,
+    eventDate: string,
+    menu: TMenu,
+    services: TService[],
+    notes: string,
+    status: string,
+    createdAt: string,
+}

@@ -46,6 +46,16 @@ import EventClient from "@/pages/client/event";
 // Menu
 import MenuClient from "@/pages/client/menu";
 import MenuEvent from "@/pages/client/menu-event";
+// Venue
+import VenueClient from "@/pages/client/venue";
+import DetailVenueClient from "@/pages/client/venue/detail";
+
+// Payment
+import Payment from "@/pages/client/payment";
+import PaymentSuccess from "@/pages/client/payment/success";
+import PaymentFail from "@/pages/client/payment/fail";
+
+import MyBookingDetail from "@/pages/client/my-booking";
 
 function AppRoutes() {
     return (
@@ -100,6 +110,17 @@ function AppRoutes() {
                     {/* Menu */}
                     <Route index path="/menu" element={<MenuClient/>}/>
                     <Route index path="/menu/:slug" element={<MenuEvent/>}/>
+
+                    {/* Venue */}
+                    <Route index path="/venue" element={<VenueClient/>}/>
+                    <Route index path="/venue/:slug" element={<DetailVenueClient/>}/>
+
+                    {/* Payment */}
+                    <Route index path="/payment" element={<Payment/>}/>
+                    <Route index path="/payment/success" element={<PaymentSuccess/>}/>
+                    <Route index path="/payment/fail" element={<PaymentFail/>}/>
+
+                    <Route index path="/my-booking/:id" element={<MyBookingDetail/>}/>
                 </Route>
                 {/* End Public route */}
 

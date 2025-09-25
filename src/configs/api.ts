@@ -26,5 +26,11 @@ export const CONFIG_API = {
     },
     BOOKING: {
         INDEX: `${BASE_URL}/booking`,
+        CANCEL: `${BASE_URL}/booking/cancel`,
+    },
+    PAYMENT: {
+        INDEX: `${BASE_URL}/payment`,
+        MOMO: `${BASE_URL}/payment/momo`,
+        MOMO_CALL_BACK: `${BASE_URL}/payment/momo/callback`,
     }
 }

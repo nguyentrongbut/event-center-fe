@@ -22,6 +22,14 @@ type CenterCarouselProps = {
 const CenterCarousel: React.FC<CenterCarouselProps> = ({items}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    if (!items || items.length === 0) {
+        return (
+            <Container className="p-6">
+                <div className="text-center text-gray-500">No venues available</div>
+            </Container>
+        );
+    }
+
     const nextSlide = () => {
         setCurrentIndex((prev) => (prev + 1) % items.length);
     };
