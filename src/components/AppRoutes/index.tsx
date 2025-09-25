@@ -43,6 +43,9 @@ import SignIn from "@/pages/auth/sign-in";
 import SignUp from "@/pages/auth/sign-up";
 import BookingClient from "@/pages/client/booking";
 import EventClient from "@/pages/client/event";
+// Menu
+import MenuClient from "@/pages/client/menu";
+import MenuEvent from "@/pages/client/menu-event";
 
 function AppRoutes() {
     return (
@@ -93,6 +96,10 @@ function AppRoutes() {
                     <Route index path="/" element={<Home/>}/>
                     <Route index path="/booking" element={<BookingClient/>}/>
                     <Route index path="/event/:slug" element={<EventClient/>}/>
+
+                    {/* Menu */}
+                    <Route index path="/menu" element={<MenuClient/>}/>
+                    <Route index path="/menu/:slug" element={<MenuEvent/>}/>
                 </Route>
                 {/* End Public route */}
 

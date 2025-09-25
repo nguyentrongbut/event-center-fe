@@ -62,7 +62,7 @@ const EventClient = () => {
             </Container>
 
             <div className="mt-20">
-                <MenuSection menus={menus || []} adminView/>
+                <MenuSection menus={menus || []}/>
             </div>
 
             <div className="bg-primaryColor">
