@@ -61,11 +61,11 @@ export type TVenue = {
     image: string,
     heroBanners: string[],
     thumbnailImages: string[],
-    galleryImages: string[],
+    galleryImages?: string[],
     address: string,
-    open: string,
-    close: string,
-    days: string[],
+    open?: string,
+    close?: string,
+    days?: string[],
 }
 
 
@@ -81,9 +81,9 @@ export type TService = {
 export type TRoom = {
     id: number,
     name: string,
-    area: string,
+    area?: string,
     price: number,
-    people: number,
-    tableNumber: number,
-    image: string,
+    people?: number,
+    tableNumber?: number,
+    image?: string,
 }

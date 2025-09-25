@@ -32,3 +32,6 @@ export const eventTypes: TEventType[] = [
 ]
 
 //** End Home
+
+// ** Venue (Create, update)
+export const WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];

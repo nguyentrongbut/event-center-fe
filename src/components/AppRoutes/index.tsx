@@ -29,6 +29,11 @@ import DetailService from "@/pages/admin/service/view";
 import Room from "@/pages/admin/room";
 import CreateRoom from "@/pages/admin/room/create";
 import EditRoom from "@/pages/admin/room/edit";
+// Venue
+import Venue from "@/pages/admin/venue";
+import DetailVenue from "@/pages/admin/venue/view";
+import CreateVenue from "@/pages/admin/venue/create";
+import EditVenue from "@/pages/admin/venue/edit";
 
 function AppRoutes() {
     return (
@@ -51,6 +56,12 @@ function AppRoutes() {
                     <Route path='/dashboard/service/view/:id' element={<DetailService/>}/>
                     <Route path='/dashboard/service/edit/:id' element={<EditService/>}/>
                     <Route path='/dashboard/service/create' element={<CreateService/>}/>
+
+                    {/*  Venue  */}
+                    <Route path='dashboard/venue' element={<Venue/>}/>
+                    <Route path='dashboard/venue/create' element={<CreateVenue/>}/>
+                    <Route path='dashboard/venue/edit/:slug' element={<EditVenue/>}/>
+                    <Route path='dashboard/venue/view/:slug' element={<DetailVenue/>}/>
 
                     {/*  Room  */}
                     <Route path='dashboard/venue/room' element={<Room/>}/>
