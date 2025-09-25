@@ -38,13 +38,11 @@ import DetailEvent from "@/pages/admin/event/view";
 import Booking from "@/pages/admin/booking";
 
 // ** Default Pages
-// Home
 import Home from "@/pages/client/Home";
-// Auth
 import SignIn from "@/pages/auth/sign-in";
 import SignUp from "@/pages/auth/sign-up";
-// Booking
 import BookingClient from "@/pages/client/booking";
+import EventClient from "@/pages/client/event";
 
 function AppRoutes() {
     return (
@@ -94,6 +92,7 @@ function AppRoutes() {
                 <Route element={<DefaultLayout/>}>
                     <Route index path="/" element={<Home/>}/>
                     <Route index path="/booking" element={<BookingClient/>}/>
+                    <Route index path="/event/:slug" element={<EventClient/>}/>
                 </Route>
                 {/* End Public route */}
 
