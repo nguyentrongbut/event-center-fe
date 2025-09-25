@@ -42,7 +42,7 @@ const DropdownNav = () => {
                 Service
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-                <div className="grid w-[180px]">
+                <div className="grid w-[220px]">
                     <NavList list={listNavEvent || []} variant="dropdown"></NavList>
                 </div>
             </NavigationMenuContent>
