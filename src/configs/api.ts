@@ -28,6 +28,7 @@ export const CONFIG_API = {
     BOOKING: {
         INDEX: `${BASE_URL}/booking`,
         CANCEL: `${BASE_URL}/booking/cancel`,
+        BY_USER: `${BASE_URL}/booking/user`
     },
     PAYMENT: {
         INDEX: `${BASE_URL}/payment`,

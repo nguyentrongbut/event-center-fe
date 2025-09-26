@@ -55,8 +55,11 @@ import Payment from "@/pages/client/payment";
 import PaymentSuccess from "@/pages/client/payment/success";
 import PaymentFail from "@/pages/client/payment/fail";
 
-import MyBookingDetail from "@/pages/client/my-booking";
 import Profile from "@/pages/profile";
+
+// My booking
+import MyBooking from "@/pages/client/my-booking";
+import MyBookingDetail from "@/pages/client/my-booking/detail";
 
 function AppRoutes() {
     return (
@@ -116,7 +119,9 @@ function AppRoutes() {
                     <Route index path="/payment/success" element={<PaymentSuccess/>}/>
                     <Route index path="/payment/fail" element={<PaymentFail/>}/>
 
-                    <Route index path="/my-booking/:id" element={<MyBookingDetail/>}/>
+                    {/* My booking */}
+                    <Route index path="/my-booking" element={<MyBooking/>}/>
+                    {/*<Route index path="/my-booking/:id" element={<DetailVenueClient/>}/>*/}
 
                     <Route index path="/profile" element={<Profile/>}/>
                 </Route>

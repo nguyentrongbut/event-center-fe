@@ -13,6 +13,7 @@ import type {BookingForm} from "@/pages/client/booking";
 import {getCookie} from "@/utils/cookieUtils.ts";
 
 const url = CONFIG_API.BOOKING.INDEX
+const urlByUser = CONFIG_API.BOOKING.BY_USER
 const urlCancel = CONFIG_API.BOOKING.CANCEL
 const urlPayment = CONFIG_API.PAYMENT.MOMO
 const urlPaymentCallback = CONFIG_API.PAYMENT.MOMO_CALL_BACK
@@ -198,6 +199,26 @@ export async function sendCallbackFromFE(query: Record<string, string>) {
         return response.data;
     } catch (error) {
         console.error("Callback Error:", error);
+        throw error;
+    }
+}
+
+export async function getListBookingByUserId() {
+    const userCookie = getCookie("ECTA-info");
+    const userInfo: TSignIn = userCookie ? JSON.parse(userCookie) : null;
+
+    if (!userInfo) {
+        console.error("No user info found in cookie");
+        return false;
+    }
+
+    const {id} = userInfo;
+
+    try {
+        const response = await axios.get(`${urlByUser}/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error("Booking error:", error);
         throw error;
     }
 }
