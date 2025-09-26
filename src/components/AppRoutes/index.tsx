@@ -59,7 +59,6 @@ import Profile from "@/pages/profile";
 
 // My booking
 import MyBooking from "@/pages/client/my-booking";
-import MyBookingDetail from "@/pages/client/my-booking/detail";
 
 function AppRoutes() {
     return (

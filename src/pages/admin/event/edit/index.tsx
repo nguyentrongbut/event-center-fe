@@ -12,7 +12,7 @@ import {HeadingAdmin} from "@/components/typography/admin";
 import FormEditEvent from "@/pages/admin/event/edit/form.edit.event.tsx";
 
 // ** Types
-import type {TDetailEvent, TMenu, TService} from "@/types/data";
+import type {TEvent, TMenu, TService} from "@/types/data";
 
 // ** Services
 import {getListMenu} from "@/services/menus";
@@ -21,11 +21,11 @@ import {getDetailEvent} from "@/services/events";
 
 const EditEvent = () => {
 
-    const { slug } = useParams<{ slug: string }>();
+    const {slug} = useParams<{ slug: string }>();
 
     const [listMenu, setListMenu] = useState<TMenu[]>([])
     const [listService, setListService] = useState<TService[]>([])
-    const [event, setEvent] = useState<TDetailEvent>()
+    const [event, setEvent] = useState<TEvent>()
 
     useEffect(() => {
         const fetchListMenu = async () => {
@@ -64,7 +64,7 @@ const EditEvent = () => {
             <FormEditEvent
                 service={listService}
                 menu={listMenu}
-                event={event?.eventInfo}
+                event={event}
                 menuIds={event?.menus}
                 serviceIds={event?.services}
             />

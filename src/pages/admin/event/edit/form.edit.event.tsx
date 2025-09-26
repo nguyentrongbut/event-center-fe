@@ -87,6 +87,7 @@ const FormEditEvent = ({
         label: `${s.name} - ${formatCurrency(s.price)}`,
     }));
 
+
     const form = useForm<EditEventForm>({
         resolver: zodResolver(formSchema),
         defaultValues: {

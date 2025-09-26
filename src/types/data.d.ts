@@ -50,12 +50,6 @@ export type TEvent = {
     hot: boolean,
 }
 
-export type TDetailEvent = {
-    eventInfo: TEvent
-    menus: TMenu[]
-    services: TService[]
-}
-
 export type TVenue = {
     id: number,
     name: string,
@@ -71,6 +65,24 @@ export type TVenue = {
     address: string,
     open?: string,
     close?: string,
+    days?: string[],
+}
+
+export type TUpdateVenue = {
+    id: number,
+    name: string,
+    slug: string,
+    description: string,
+    area: string,
+    people: number,
+    rooms: TRoom[],
+    image: string,
+    heroBanners: string[],
+    thumbnailImages: string[],
+    galleryImages?: string[],
+    address: string,
+    openTime?: string,
+    closeTime?: string,
     days?: string[],
 }
 

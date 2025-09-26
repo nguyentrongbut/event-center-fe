@@ -24,7 +24,7 @@ import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 
 // ** types
-import type {TRoom, TVenue} from "@/types/data";
+import type {TRoom, TUpdateVenue} from "@/types/data";
 import type {TOption} from "@/types";
 
 // ** Configs
@@ -64,7 +64,7 @@ const formSchema = z.object({
 
 export type EditVenueForm = z.infer<typeof formSchema>;
 
-const FormEditVenue = ({ room, venue }: { room: TRoom[]; venue: TVenue }) => {
+const FormEditVenue = ({ room, venue }: { room: TRoom[]; venue: TUpdateVenue }) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
 
@@ -72,6 +72,8 @@ const FormEditVenue = ({ room, venue }: { room: TRoom[]; venue: TVenue }) => {
         value: room.id,
         label: room.name,
     }));
+
+    console.log(venue)
 
     const form = useForm<EditVenueForm>({
         resolver: zodResolver(formSchema),
@@ -85,8 +87,8 @@ const FormEditVenue = ({ room, venue }: { room: TRoom[]; venue: TVenue }) => {
             thumbnailImages: venue.thumbnailImages,
             galleryImages: venue.galleryImages,
             address: venue.address,
-            open: venue.open,
-            close: venue.close,
+            open: venue.openTime,
+            close: venue.closeTime,
             days: venue.days,
             image: venue.image,
         },
