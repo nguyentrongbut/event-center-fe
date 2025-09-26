@@ -13,6 +13,8 @@ import {deleteCookie, getCookie, setCookie} from "@/utils/cookieUtils.ts";
 
 // ** types
 import type {TProfile, TProfileAPI, TSignIn} from "@/types/data";
+// ** pages
+import type {ProfileFormUpdate} from "@/pages/profile/components/form.update.profile.tsx";
 
 export async function signIn(values: SignInForm) {
     try {
@@ -82,6 +84,55 @@ export async function logout() {
         return true
     } catch (error) {
         console.error(error);
+        return null;
+    }
+}
+
+export async function updateProfile(infoProfile: ProfileFormUpdate) {
+    const { id, name, email, avatar, phone, address } = infoProfile;
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("address", address);
+
+    if (avatar instanceof File) {
+        formData.append("avatar", avatar);
+    }
+
+    try {
+        const response = await axios.patch(`${CONFIG_API.AUTH.USER}/${id}`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
+        if (!response.data) return null;
+
+        return 200;
+    } catch (error) {
+        console.error("Error in update profile:", error);
+        return null;
+    }
+}
+
+export async function changePassword(id: number, newPassword: string) {
+    try {
+        const response = await axios.patch(`${CONFIG_API.AUTH.USER}/${id}`, {
+                password: newPassword,
+            },
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+        if (response.data.length < 1) return null;
+
+
+        return 200;
+    } catch (error) {
+        console.error("Error in change password:", error);
         return null;
     }
 }

@@ -5,6 +5,7 @@ export const CONFIG_API = {
         INDEX: `${BASE_URL}/auth`,
         LOGIN: `${BASE_URL}/auth/login`,
         REGISTER: `${BASE_URL}/auth/register`,
+        USER: `${BASE_URL}/users`,
     },
     EVENT: {
         INDEX: `${BASE_URL}/events`,

@@ -43,6 +43,7 @@ const DetailEvent = () => {
         return <div>Event not found</div>;
     }
 
+
     return (
         <ContainerAdmin>
             <HeadingAdmin>
