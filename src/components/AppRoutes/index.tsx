@@ -106,7 +106,7 @@ function AppRoutes() {
                 <Route
                     element={
                         <ProtectedRoute roles={[ROLE.USER]}>
-                            <AdminLayout/>
+                            <DefaultLayout/>
                         </ProtectedRoute>
                     }
                 >
