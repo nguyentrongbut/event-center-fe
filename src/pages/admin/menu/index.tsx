@@ -27,20 +27,19 @@ const Menu = () => {
                 console.error("Failed to load dish:", error)
             }
         }
-
         fetchListDish()
     }, [])
 
-    useEffect(() => {
-        const fetchListMenu = async () => {
-            try {
-                const data = await getListMenu()
-                setListMenu(data)
-            } catch (error) {
-                console.error("Failed to load dish:", error)
-            }
+    const fetchListMenu = async () => {
+        try {
+            const data = await getListMenu()
+            setListMenu(data)
+        } catch (error) {
+            console.error("Failed to load dish:", error)
         }
+    }
 
+    useEffect(() => {
         fetchListMenu()
     }, [])
 
@@ -55,13 +54,17 @@ const Menu = () => {
                 <HeadingAdmin>
                     List Menu
                 </HeadingAdmin>
-                <DialogCreateMenu dishes={dishes}/>
+                <DialogCreateMenu dishes={dishes} onReload={fetchListMenu}/>
             </div>
-            <div className="-mx-4 mt-6">
-                <div className="relative">
-                    <ListMenu isAdminView menus={listMenu} listDish={listDish}/>
+            {listMenu?.length > 0 ? (
+                <div className="-mx-4 mt-6">
+                    <div className="relative">
+                        <ListMenu isAdminView menus={listMenu} listDish={listDish} onReload={fetchListMenu}/>
+                    </div>
                 </div>
-            </div>
+            ) : (
+                <p className="text-center text-gray-500">No menus found. Create a new one now.</p>
+            )}
         </ContainerAdmin>
     )
 }

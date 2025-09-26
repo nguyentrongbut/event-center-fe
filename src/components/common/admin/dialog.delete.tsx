@@ -25,6 +25,7 @@ interface IDialogDeleteProps {
     onConfirm: () => Promise<boolean>
     successMessage?: string
     errorMessage?: string
+    onReload?: () => void
 }
 
 const DialogDelete = ({
@@ -33,7 +34,8 @@ const DialogDelete = ({
                           name,
                           onConfirm,
                           successMessage,
-                          errorMessage
+                          errorMessage,
+                          onReload
                       }: IDialogDeleteProps) => {
     const [isLoading, setIsLoading] = useState(false)
 
@@ -43,6 +45,7 @@ const DialogDelete = ({
             const result = await onConfirm()
             if (!result) return toast.error(errorMessage || `Unable to delete ${name}`)
             toast.success(successMessage || `${name} has been successfully deleted`)
+            onReload?.()
             onOpenChange(false)
         } catch (error) {
             console.error(error)

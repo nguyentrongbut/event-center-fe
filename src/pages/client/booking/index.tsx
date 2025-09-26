@@ -80,6 +80,8 @@ const BookingClient = () => {
 
     const [currentStep, setCurrentStep] = useState(1);
 
+    console.log(infoProfile)
+
     const [bookingForm, setBookingForm] = useState<BookingForm>({
         userId: infoProfile?.id ?? null,
         eventType: null,

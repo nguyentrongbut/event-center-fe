@@ -14,7 +14,12 @@ import {Plus} from "lucide-react";
 // ** types
 import type {TOption} from "@/types";
 
-const DialogCreateMenu = ({dishes} : {dishes: TOption[]}) => {
+interface IDialogCreateMenu {
+    dishes: TOption[],
+    onReload: () => void
+}
+
+const DialogCreateMenu = ({dishes, onReload} : IDialogCreateMenu) => {
     const [open, setOpen] = useState(false)
     return (
         <Dialog open={open} onOpenChange={setOpen}>
@@ -28,7 +33,7 @@ const DialogCreateMenu = ({dishes} : {dishes: TOption[]}) => {
                 <DialogHeader>
                     <DialogTitle>Create Menu</DialogTitle>
                 </DialogHeader>
-                <FormCreateMenu dishes={dishes} onSuccess={() => setOpen(false)}/>
+                <FormCreateMenu dishes={dishes} onSuccess={() => setOpen(false)} onReload={onReload}/>
             </DialogContent>
         </Dialog>
     )

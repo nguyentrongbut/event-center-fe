@@ -19,10 +19,12 @@ import {deleteMenu} from "@/services/menus";
 
 type TEditMenu = TMenu & {
     listDish: TDish[];
+    onReload?: () => void
 }
 
-const ActionMenu = ({ id, name, price, dishes, listDish }: TEditMenu) => {
+const ActionMenu = ({ id, name, price, dishes, listDish, onReload }: TEditMenu) => {
     const [open, setOpen] = useState(false)
+    const [openUpdate, setOpenUpdate] = useState(false)
 
     return (
         <>
@@ -40,9 +42,10 @@ const ActionMenu = ({ id, name, price, dishes, listDish }: TEditMenu) => {
                 onConfirm={() => deleteMenu(id!)}
                 successMessage="Menu deleted successfully"
                 errorMessage="Failed to delete menu, please try again"
+                onReload={onReload}
             />
 
-            <Dialog>
+            <Dialog open={openUpdate} onOpenChange={setOpenUpdate}>
                 <DialogTrigger asChild>
                     <div className="hover:text-gray-700 transition cursor-pointer">
                         <Pen className="size-4" />
@@ -60,6 +63,8 @@ const ActionMenu = ({ id, name, price, dishes, listDish }: TEditMenu) => {
                         price={price}
                         dishesInMenu={dishes}
                         allDishes={listDish}
+                        onReload={onReload}
+                        onSuccess={() => setOpenUpdate(false)}
                     />
                 </DialogContent>
             </Dialog>

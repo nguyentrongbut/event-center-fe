@@ -87,19 +87,22 @@ const FormCreateVenue: React.FC<FormCreateVenueProps> = ({room}) => {
     const onSubmit = async (values: CreateVenueForm) => {
         setIsSubmitting(true);
         const formData = new FormData();
-        formData.append("Name", values.name);
-        formData.append("Area", values.area);
-        formData.append("People", values.people.toString());
-        formData.append("Description", values.description || "");
-        values.roomIds.forEach(id => formData.append("RoomIds", id.toString()));
-        values.heroBanners?.forEach(file => formData.append("HeroBanners", file));
-        values.thumbnailImages?.forEach(file => formData.append("ThumbnailImages", file));
-        values.galleryImages?.forEach(file => formData.append("GalleryImages", file));
-        formData.append("Address", values.address);
-        formData.append("Open", values.open);
-        formData.append("Close", values.close);
-        values.days.forEach(day => formData.append("Days", day));
-        formData.append("Image", values.image);
+
+        formData.append("name", values.name);
+        formData.append("area", values.area);
+        formData.append("people", values.people.toString());
+        formData.append("description", values.description || "");
+        values.roomIds.forEach(id => formData.append("roomIds", id.toString()));
+
+        values.heroBanners?.forEach(file => formData.append("heroBanners", file));
+        values.thumbnailImages?.forEach(file => formData.append("thumbnailImages", file));
+        values.galleryImages?.forEach(file => formData.append("galleryImages", file));
+
+        formData.append("address", values.address);
+        formData.append("open", values.open);
+        formData.append("close", values.close);
+        values.days.forEach(day => formData.append("days", day));
+        formData.append("image", values.image);
 
         try {
             const result = await createVenue(formData);
@@ -173,7 +176,9 @@ const FormCreateVenue: React.FC<FormCreateVenueProps> = ({room}) => {
                             <FormItem>
                                 <FormLabel>Capacity (people)</FormLabel>
                                 <FormControl>
-                                    <Input type="number" {...field} />
+                                    <Input type="number" {...field}
+                                           onChange={(e) => field.onChange(Number(e.target.value))}
+                                    />
                                 </FormControl>
                                 <FormMessage/>
                             </FormItem>
@@ -252,8 +257,8 @@ const FormCreateVenue: React.FC<FormCreateVenueProps> = ({room}) => {
                             <FormLabel>Active Days</FormLabel>
                             <FormControl>
                                 <MultiSelect
-                                    options={WEEKDAYS.map(d => ({ label: d, value: d })) as unknown as TOption[]}
-                                    value={WEEKDAYS.map(d => ({ label: d, value: d }))
+                                    options={WEEKDAYS.map(d => ({label: d, value: d})) as unknown as TOption[]}
+                                    value={WEEKDAYS.map(d => ({label: d, value: d}))
                                         .filter(opt => field.value.includes(opt.value)) as unknown as TOption[]}
                                     onChange={opts =>
                                         field.onChange(opts.map(opt => opt.value))

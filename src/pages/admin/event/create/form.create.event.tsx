@@ -94,22 +94,22 @@ const FormCreateEvent = ({ menu, service }: { menu: TMenu[]; service: TService[]
         try {
             const formData = new FormData();
 
-            formData.append("Name", values.name);
-            if (values.subName) formData.append("SubName", values.subName);
-            if (values.description) formData.append("Description", values.description);
-            if (values.icon) formData.append("Icon", values.icon);
-            formData.append("Hot", values.hot.toString());
+            formData.append("name", values.name);
+            if (values.subName) formData.append("subName", values.subName);
+            if (values.description) formData.append("description", values.description);
+            if (values.icon) formData.append("icon", values.icon);
+            formData.append("hot", values.hot.toString());
 
             values.images.forEach((img) => {
                 if (img instanceof File) {
-                    formData.append("Images", img);
+                    formData.append("images", img);
                 } else {
-                    formData.append("Images", img);
+                    formData.append("images", img);
                 }
             });
 
-            values.menuIds?.forEach((id) => formData.append("MenuIds", id.toString()));
-            values.serviceIds?.forEach((id) => formData.append("ServiceIds", id.toString()));
+            values.menuIds?.forEach((id) => formData.append("menuIds", id.toString()));
+            values.serviceIds?.forEach((id) => formData.append("serviceIds", id.toString()));
 
             const result = await createEvent(formData);
             if (!result) return toast.error("Failed to create event");
@@ -273,7 +273,7 @@ const FormCreateEvent = ({ menu, service }: { menu: TMenu[]; service: TService[]
 
                 {/* Buttons */}
                 <div className="flex justify-end gap-3 pt-2">
-                    <Link to="/dashboard/venue/room">
+                    <Link to="/dashboard/event">
                         <Button variant="outline" type="button" disabled={isSubmitting}>
                             Cancel
                         </Button>

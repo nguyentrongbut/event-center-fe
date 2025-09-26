@@ -36,6 +36,7 @@ import {createMenu} from "@/services/menus";
 interface FormCreateMenuProps {
     onSuccess?: () => void;
     dishes: TOption[];
+    onReload: () => void
 }
 
 const formSchema = z.object({
@@ -46,7 +47,7 @@ const formSchema = z.object({
 
 export type CreateMenuForm = z.infer<typeof formSchema>;
 
-const FormCreateMenu = ({ onSuccess, dishes }: FormCreateMenuProps) => {
+const FormCreateMenu = ({ onSuccess, dishes, onReload }: FormCreateMenuProps) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const form = useForm<CreateMenuForm>({
@@ -63,6 +64,7 @@ const FormCreateMenu = ({ onSuccess, dishes }: FormCreateMenuProps) => {
         try {
             const result = await createMenu(values.name, values.dishIds, values.price);
             if (!result) return toast.error("Failed to create menu");
+            onReload()
             toast.success("Menu created successfully");
             onSuccess?.();
         } catch (error) {

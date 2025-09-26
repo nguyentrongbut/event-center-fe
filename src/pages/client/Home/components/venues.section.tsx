@@ -20,6 +20,8 @@ const VenuesSection = () => {
         const fetchListVenue = async () => {
             try {
                 const data = await getListVenue()
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-expect-error
                 setListVenue(data)
             } catch (error) {
                 console.error("Failed to load profile:", error)

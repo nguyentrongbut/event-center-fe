@@ -10,6 +10,7 @@ export type TSignIn = {
 }
 
 export type TProfile = {
+    id: number;
     name: string;
     email: string;
     password: string;
@@ -19,7 +20,6 @@ export type TProfile = {
 };
 
 export type TProfileAPI = TProfile & {
-    id: number;
     role: TRole;
     status: TStatus;
     deleted: boolean;

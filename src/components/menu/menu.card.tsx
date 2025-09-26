@@ -11,9 +11,10 @@ import type {TDish, TMenu} from "@/types/data";
 type TMenuProps = TMenu & {
     isAdminView?: boolean;
     listDish?: TDish[];
+    onReload?: () => void
 };
 
-const MenuCard = ({ id, name, price, dishes, isAdminView = false, listDish }: TMenuProps) => {
+const MenuCard = ({ id, name, price, dishes, isAdminView = false, listDish, onReload }: TMenuProps) => {
     return (
         <div className="relative group rounded-2xl overflow-hidden shadow-md transition hover:shadow-lg">
             <div
@@ -64,6 +65,7 @@ const MenuCard = ({ id, name, price, dishes, isAdminView = false, listDish }: TM
                         dishes={dishes}
                         price={price}
                         listDish={listDish!}
+                        onReload={onReload}
                     />
                 </div>
             )}

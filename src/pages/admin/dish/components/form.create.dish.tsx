@@ -22,6 +22,7 @@ import {createDish} from "@/services/dishes";
 
 interface FormCreateDishProps {
     onSuccess?: () => void;
+    onReload: () => void
 }
 
 const formSchema = z.object({
@@ -30,7 +31,7 @@ const formSchema = z.object({
 
 export type CreateDishForm = z.infer<typeof formSchema>;
 
-const FormCreateDish = ({ onSuccess }: FormCreateDishProps) => {
+const FormCreateDish = ({ onSuccess, onReload }: FormCreateDishProps) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     // 1. Define your form.
@@ -47,6 +48,7 @@ const FormCreateDish = ({ onSuccess }: FormCreateDishProps) => {
         try {
             const result = await createDish(values.name)
             if (!result) return toast.error("Create dish failed. Please try again!");
+            onReload();
             toast.success("Create dish successfully!");
             onSuccess?.()
         } catch (error) {

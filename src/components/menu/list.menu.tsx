@@ -8,9 +8,10 @@ type TListMenuProps = {
     menus:TMenu[]
     isAdminView?: boolean;
     listDish?: TDish[];
+    onReload?: () => void
 };
 
-const ListMenu = ({menus, listDish, isAdminView = false}: TListMenuProps) => {
+const ListMenu = ({menus, listDish, isAdminView = false, onReload}: TListMenuProps) => {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
             {menus.map((menu) => (
@@ -22,6 +23,7 @@ const ListMenu = ({menus, listDish, isAdminView = false}: TListMenuProps) => {
                     dishes={menu.dishes}
                     price={menu.price}
                     listDish={listDish}
+                    onReload={onReload}
                 />
             ))}
         </div>

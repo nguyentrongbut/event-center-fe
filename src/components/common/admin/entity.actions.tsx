@@ -1,5 +1,5 @@
 // ** React
-import { useState } from "react";
+import {useState} from "react";
 
 // ** React router
 import {Link} from "react-router-dom";
@@ -15,10 +15,10 @@ import {
     DropdownMenuTrigger,
     DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+import {Button} from "@/components/ui/button";
 
 // ** Lucide Icon
-import { Trash2, Edit, Eye, MoreHorizontal } from "lucide-react";
+import {Trash2, Edit, Eye, MoreHorizontal} from "lucide-react";
 
 interface EntityActionsProps {
     id: number;
@@ -26,6 +26,7 @@ interface EntityActionsProps {
     editUrl: string;
     entityName: string;
     onDelete: () => Promise<void>;
+    onReload?: () => void
 }
 
 const EntityActions = ({
@@ -33,6 +34,7 @@ const EntityActions = ({
                            editUrl,
                            entityName,
                            onDelete,
+                           onReload
                        }: EntityActionsProps) => {
     const [open, setOpen] = useState(false);
 
@@ -42,14 +44,14 @@ const EntityActions = ({
                 <DropdownMenuTrigger asChild>
                     <Button variant="ghost" className="size-8 p-0">
                         <span className="sr-only">Open menu</span>
-                        <MoreHorizontal className="size-4" />
+                        <MoreHorizontal className="size-4"/>
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
                     {viewUrl && (
                         <DropdownMenuItem asChild>
                             <Link to={viewUrl} className="flex items-center gap-2">
-                                <Eye className="size-4" />
+                                <Eye className="size-4"/>
                                 <span>View Details</span>
                             </Link>
                         </DropdownMenuItem>
@@ -57,18 +59,18 @@ const EntityActions = ({
 
                     <DropdownMenuItem asChild>
                         <Link to={editUrl} className="flex items-center gap-2">
-                            <Edit className="size-4" />
+                            <Edit className="size-4"/>
                             <span>Edit</span>
                         </Link>
                     </DropdownMenuItem>
 
-                    <DropdownMenuSeparator />
+                    <DropdownMenuSeparator/>
 
                     <DropdownMenuItem
                         className="text-red-600 cursor-pointer"
                         onSelect={() => setOpen(true)}
                     >
-                        <Trash2 className="mr-2 size-4" />
+                        <Trash2 className="mr-2 size-4"/>
                         Delete
                     </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -82,6 +84,7 @@ const EntityActions = ({
                     await onDelete()
                     return true
                 }}
+                onReload={onReload}
                 successMessage={`Successfully deleted ${entityName}`}
                 errorMessage={`Failed to delete ${entityName}, please try again`}
             />

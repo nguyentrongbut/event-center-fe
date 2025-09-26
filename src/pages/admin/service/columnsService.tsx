@@ -6,7 +6,7 @@ import EntityActions from "@/components/common/admin/entity.actions.tsx";
 import type {ColumnDef} from "@tanstack/react-table";
 
 // ** Lucide Icon
-import { ArrowUpDown } from "lucide-react";
+import {ArrowUpDown} from "lucide-react";
 
 // ** utils
 import {formatCurrency} from "@/utils/format.ts";
@@ -17,17 +17,19 @@ import type {TService} from "@/types/data";
 // ** services
 import {deleteService} from "@/services/services";
 
-export const columnsService: ColumnDef<TService>[] = [
+export const columnsService = (
+    fetchListService: () => Promise<void>
+): ColumnDef<TService>[] => [
     {
         accessorKey: "name",
-        header: ({ column }) => {
+        header: ({column}) => {
             return (
                 <div
                     className="flex gap-2 items-center cursor-pointer"
                     onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
                 >
                     Service Name
-                    <ArrowUpDown className="ml-2 size-4" />
+                    <ArrowUpDown className="ml-2 size-4"/>
                 </div>
             )
         },
@@ -35,7 +37,7 @@ export const columnsService: ColumnDef<TService>[] = [
     {
         accessorKey: "images",
         header: "Image",
-        cell: ({ row }) => {
+        cell: ({row}) => {
             const name: string = row.getValue("name");
             const images: string[] = row.getValue("images");
             const image = images[0];
@@ -55,18 +57,18 @@ export const columnsService: ColumnDef<TService>[] = [
     },
     {
         accessorKey: "price",
-        header: ({ column }) => {
+        header: ({column}) => {
             return (
                 <div
                     className="flex gap-2 items-center cursor-pointer"
                     onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
                 >
                     Price
-                    <ArrowUpDown className="ml-2 size-4" />
+                    <ArrowUpDown className="ml-2 size-4"/>
                 </div>
             )
         },
-        cell: ({ row }) => {
+        cell: ({row}) => {
             const price: number = row.getValue("price");
 
             return (
@@ -84,7 +86,7 @@ export const columnsService: ColumnDef<TService>[] = [
     {
         accessorKey: "description",
         header: "Description",
-        cell: ({ row }) => {
+        cell: ({row}) => {
             const description: string = row.getValue("description");
 
             return (
@@ -97,7 +99,7 @@ export const columnsService: ColumnDef<TService>[] = [
     {
         id: "actions",
         header: "Actions",
-        cell: ({ row }) => {
+        cell: ({row}) => {
             const service = row.original;
             const serviceId = service.id;
             return (
@@ -107,6 +109,7 @@ export const columnsService: ColumnDef<TService>[] = [
                     editUrl={`/dashboard/service/edit/${serviceId}`}
                     entityName="service"
                     onDelete={() => deleteService(serviceId)}
+                    onReload={fetchListService}
                 />
             )
         },

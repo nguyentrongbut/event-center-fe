@@ -5,8 +5,7 @@ import axios from "axios";
 import {CONFIG_API} from "@/configs/api.ts";
 
 // ** types
-// TMenu,
-import type {TSignIn} from "@/types/data";
+import type { TSignIn} from "@/types/data";
 
 // ** utils
 import {getCookie} from "@/utils/cookieUtils.ts";
@@ -14,48 +13,13 @@ import {getCookie} from "@/utils/cookieUtils.ts";
 const url = CONFIG_API.MENU.INDEX
 
 export async function getListMenu() {
-    // try {
-    //     const response: TMenu[] = await axios.get(url);
-    //
-    //     return response;
-    // } catch (error) {
-    //     console.error(error);
-    // }
-    return [
-        {
-            "id": 1,
-            "name": "Menu 1",
-            "price": 129000,
-            "dishes": [
-                { "id": 1, "name": "Nộm sứa ngũ sắc" },
-                { "id": 2, "name": "Gà ta hấp lá chanh" },
-                { "id": 3, "name": "Nem hải sản Phú Quốc" },
-                { "id": 4, "name": "Ếch rang muối" },
-                { "id": 5, "name": "Bê tái chanh" },
-                { "id": 6, "name": "Cá lăng chiên hoàng bào" },
-                { "id": 7, "name": "Củ quả luộc chấm muối vừng" },
-                { "id": 8, "name": "Canh ngao nấu chua" },
-                { "id": 9, "name": "Cơm Tám" },
-                { "id": 10, "name": "Xôi Hoàng Phố" }
-            ]
-        },
-        {
-            "id": 2,
-            "name": "Menu 10",
-            "price": 400000,
-            "dishes": [
-                { "id": 1, "name": "Nộm sứa ngũ sắc" },
-                { "id": 3, "name": "Nem hải sản Phú Quốc" },
-                { "id": 4, "name": "Ếch rang muối" },
-                { "id": 5, "name": "Bê tái chanh" },
-                { "id": 6, "name": "Cá lăng chiên hoàng bào" },
-                { "id": 7, "name": "Củ quả luộc chấm muối vừng" },
-                { "id": 8, "name": "Canh ngao nấu chua" },
-                { "id": 9, "name": "Cơm Tám" },
-                { "id": 10, "name": "Xôi Hoàng Phố" }
-            ]
-        }
-    ]
+    try {
+        const response = await axios.get(url);
+
+        return response.data;
+    } catch (error) {
+        console.error(error);
+    }
 }
 
 export async function createMenu(name: string, dishIds: number[], price: number) {

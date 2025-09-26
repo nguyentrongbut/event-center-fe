@@ -41,6 +41,7 @@ interface FormEditMenuProps {
     price: number;
     dishesInMenu: TDish[];
     allDishes: TDish[];
+    onReload?: () => void
 }
 
 const formSchema = z.object({
@@ -51,7 +52,7 @@ const formSchema = z.object({
 
 export type EditMenuForm = z.infer<typeof formSchema>;
 
-const FormEditMenu = ({ id, onSuccess, name, price, dishesInMenu, allDishes }: FormEditMenuProps) => {
+const FormEditMenu = ({ id, onSuccess, name, price, dishesInMenu, allDishes, onReload }: FormEditMenuProps) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const options: TOption[] = allDishes.map((dish) => ({
@@ -76,6 +77,7 @@ const FormEditMenu = ({ id, onSuccess, name, price, dishesInMenu, allDishes }: F
             const result = await updateMenu(id, values.name, values.dishIds, values.price);
             if (!result) return toast.error("Failed to update the menu");
             toast.success("Menu updated successfully");
+            onReload?.();
             onSuccess?.();
         } catch (error) {
             console.error(error);

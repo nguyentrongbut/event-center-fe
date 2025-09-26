@@ -28,8 +28,6 @@ const DetailVenue = () => {
         const fetchVenue = async () => {
             if(!slug) return
             const data = await getDetailVenue(slug)
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
             setVenue(data)
         }
 

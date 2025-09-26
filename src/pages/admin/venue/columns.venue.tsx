@@ -14,7 +14,9 @@ import type {TVenue} from "@/types/data";
 // ** services
 import {deleteVenue} from "@/services/venues";
 
-export const columnsVenue: ColumnDef<TVenue>[] = [
+export const columnsVenue = (
+    fetchListVenue: () => Promise<void>
+): ColumnDef<TVenue>[] => [
     {
         accessorKey: "name",
         header: ({ column }) => (
@@ -121,6 +123,7 @@ export const columnsVenue: ColumnDef<TVenue>[] = [
                     editUrl={`/dashboard/venue/edit/${venueSlug}`}
                     entityName="venue"
                     onDelete={() => deleteVenue(venueId)}
+                    onReload={fetchListVenue}
                 />
             );
         },

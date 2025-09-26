@@ -60,6 +60,7 @@ export async function getProfile() {
         const { data } = await axios.get<TProfileAPI>(`${CONFIG_API.AUTH.INDEX}/${userInfo.id}`);
 
         const payload: TProfile = {
+            id: data.id,
             name: data.name,
             email: data.email,
             password: data.password,

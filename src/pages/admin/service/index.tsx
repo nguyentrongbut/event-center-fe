@@ -28,12 +28,12 @@ const Service = () => {
 
     const [listService, setListService] = useState<TService[]>([])
 
-    useEffect(() => {
-        const fetchListService = async () => {
-            const data = await getListService()
-            setListService(data)
-        }
+    const fetchListService = async () => {
+        const data = await getListService()
+        setListService(data)
+    }
 
+    useEffect(() => {
         fetchListService()
     }, [])
 
@@ -50,7 +50,7 @@ const Service = () => {
                     </Button>
                 </Link>
             </div>
-            <DataTable columns={columnsService} data={listService} />
+            <DataTable columns={columnsService(fetchListService)} data={listService} />
         </ContainerAdmin>
     )
 }

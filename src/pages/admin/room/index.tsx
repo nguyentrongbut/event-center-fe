@@ -19,13 +19,12 @@ const Room = () => {
 
     const [listRoom, setListRoom] = useState<TRoom[]>([])
 
+    const fetchListRoom = async () => {
+        const data = await getListRoom();
+        setListRoom(data);
+    }
+
     useEffect(() => {
-
-        const fetchListRoom = async () => {
-            const data = await getListRoom();
-            setListRoom(data);
-        }
-
         fetchListRoom()
     }, [])
 
@@ -34,7 +33,7 @@ const Room = () => {
             <TitleWithCreateBtn
                 title="List Room"
                 createUrl="/dashboard/venue/room/create"/>
-            <DataTable columns={columnsRoom} data={listRoom}/>
+            <DataTable columns={columnsRoom(fetchListRoom)} data={listRoom}/>
         </ContainerAdmin>
     )
 }

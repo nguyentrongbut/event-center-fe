@@ -5,7 +5,6 @@ import axios from "axios";
 import {CONFIG_API} from "@/configs/api.ts";
 
 // ** types
-// TRoom,
 import type {TSignIn} from "@/types/data";
 
 // ** utils
@@ -18,54 +17,21 @@ import type {EditRoomForm} from "@/pages/admin/room/edit/form.edit.room.tsx";
 const url = CONFIG_API.ROOM.INDEX
 
 export async function getListRoom() {
-    // try {
-    //     const response: TRoom[] = await axios.get(`${url}`);
-    //     return response;
-    // } catch (error) {
-    //     console.log(error);
-    // }
-    return [
-        {
-            "id": 1,
-            "name": "phòng test",
-            "area": "10",
-            "people": 2,
-            "table": 2,
-            "image": "https://res.cloudinary.com/dnj4p1bry/image/upload/v1751433783/snappr-S7twrJmc_1k-unsplash_ya6idz.jpg",
-            "price": 500000,
-            "deleted": false
-        },
-        {
-            "id": 2,
-            "name": "room test",
-            "area": "200",
-            "people": 20,
-            "table": 100,
-            "image": "https://res.cloudinary.com/dnj4p1bry/image/upload/v1751468954/snappr-S7twrJmc_1k-unsplash_svsvdt.jpg",
-            "price": 500000,
-            "deleted": false
-        }
-    ]
+    try {
+        const response = await axios.get(`${url}`);
+        return response.data;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 
 export async function getDetailRoom(id: number) {
-    // try {
-    //     const response = await axios.get(`${url}/${id}`);
-    //     return response;
-    // } catch (error) {
-    //     console.log(error);
-    // }
-    console.log(id)
-    return {
-        "id": 1,
-        "name": "phòng test",
-        "area": "10",
-        "people": 2,
-        "table": 2,
-        "image": "https://res.cloudinary.com/dnj4p1bry/image/upload/v1751433783/snappr-S7twrJmc_1k-unsplash_ya6idz.jpg",
-        "price": 500000,
-        "deleted": false
+    try {
+        const response = await axios.get(`${url}/${id}`);
+        return response.data;
+    } catch (error) {
+        console.log(error);
     }
 }
 

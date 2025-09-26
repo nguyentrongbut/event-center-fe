@@ -15,7 +15,7 @@ import MenuSection from "@/components/common/menu.section.tsx";
 import {Card, CardContent, CardHeader} from "@/components/ui/card.tsx";
 
 // ** Types
-import type {TDetailEvent, TEvent, TService} from "@/types/data";
+import type {TEvent, TService} from "@/types/data";
 
 // ** Services
 import {getDetailEvent} from "@/services/events";
@@ -23,9 +23,8 @@ import {getDetailEvent} from "@/services/events";
 
 const DetailEvent = () => {
 
-    const { slug } = useParams<{ slug: string }>();
-    const [event, setEvent] = useState<TDetailEvent>()
-    const eventInfo: TEvent | undefined = event?.eventInfo
+    const {slug} = useParams<{ slug: string }>();
+    const [event, setEvent] = useState<TEvent>()
     const menus = event?.menus
 
     const services = event?.services
@@ -33,16 +32,14 @@ const DetailEvent = () => {
     useEffect(() => {
         const fetchEvent = async () => {
             if (!slug) return
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            const data: TDetailEvent = await getDetailEvent(slug);
+            const data: TEvent = await getDetailEvent(slug);
             setEvent(data)
         }
 
         fetchEvent()
     }, [])
 
-    if (!eventInfo) {
+    if (!event) {
         return <div>Event not found</div>;
     }
 
@@ -54,10 +51,10 @@ const DetailEvent = () => {
             <div>
                 <Container>
                     <ContentSection
-                        title={eventInfo?.name}
-                        subTitle={eventInfo?.subName}
-                        desc={eventInfo?.description}
-                        images={eventInfo?.images}
+                        title={event?.name}
+                        subTitle={event?.subName}
+                        desc={event?.description}
+                        images={event?.images}
                     />
                 </Container>
             </div>
@@ -67,7 +64,7 @@ const DetailEvent = () => {
             <div className="bg-[#f0f1f1]">
                 <Container>
                     {
-                        services?.map((service:TService, index:number) => (
+                        services?.map((service: TService, index: number) => (
                             <ContentSection
                                 key={index}
                                 title="Our services"
@@ -83,8 +80,8 @@ const DetailEvent = () => {
             <Card className="my-8">
                 <CardHeader>Info Other:</CardHeader>
                 <CardContent className="space-y-4">
-                    <div>Hot: {eventInfo?.hot ? "Yes" : "No"}</div>
-                    <div>Icon: {eventInfo?.icon}</div>
+                    <div>Hot: {event?.hot ? "Yes" : "No"}</div>
+                    <div>Icon: {event?.icon}</div>
                 </CardContent>
             </Card>
         </ContainerAdmin>

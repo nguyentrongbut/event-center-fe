@@ -23,10 +23,27 @@ import DialogEditDish from "@/pages/admin/dish/components/dialog.edit.dish.tsx";
 // ** services
 import {deleteDish} from "@/services/dishes";
 
-const ActionDish = ({id, name}: { id: number, name: string }) => {
+interface IActionDish {
+    id: number,
+    name: string,
+    onReload: () => void;
+}
+
+const ActionDish = ({id, name, onReload}: IActionDish) => {
 
     const [open, setOpen] = useState(false)
     const [deleteOpen, setDeleteOpen] = useState(false)
+
+    const handleDelete = async (): Promise<boolean> => {
+        try {
+            await deleteDish(id);
+            onReload();
+            return true;
+        } catch (err) {
+            console.error("Delete failed:", err);
+            return false;
+        }
+    };
 
     return (
         <>
@@ -49,12 +66,12 @@ const ActionDish = ({id, name}: { id: number, name: string }) => {
                     </DropdownMenuItem>
                 </DropdownMenuContent>
             </DropdownMenu>
-            <DialogEditDish id={id} name={name} open={open} onOpenChange={setOpen}/>
+            <DialogEditDish id={id} name={name} open={open} onOpenChange={setOpen} onReload={onReload}/>
             <DialogDelete
                 open={deleteOpen}
                 onOpenChange={setDeleteOpen}
                 name="dish"
-                onConfirm={() => deleteDish(id)}
+                onConfirm={handleDelete}
                 successMessage="Delete dish successfully"
                 errorMessage="Delete dish failed"
             />

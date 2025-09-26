@@ -30,6 +30,7 @@ interface FormEditDishProps {
     id: number
     name: string
     onSuccess?: () => void
+    onReload: () => void;
 }
 
 const formSchema = z.object({
@@ -38,7 +39,7 @@ const formSchema = z.object({
 
 export type CreateDishForm = z.infer<typeof formSchema>
 
-const FormEditDish = ({ id, name, onSuccess }: FormEditDishProps) => {
+const FormEditDish = ({ id, name, onSuccess, onReload }: FormEditDishProps) => {
     const [isSubmitting, setIsSubmitting] = useState(false)
 
     const form = useForm<CreateDishForm>({
@@ -57,6 +58,7 @@ const FormEditDish = ({ id, name, onSuccess }: FormEditDishProps) => {
                 return
             }
 
+            onReload()
             toast.success("Update dish name successfully!")
             onSuccess?.()
         } catch (error) {

@@ -10,9 +10,10 @@ interface DialogEditDishProps {
     name: string
     open: boolean
     onOpenChange: (open: boolean) => void
+    onReload: () => void;
 }
 
-const DialogCreateDish = ({id, name, open, onOpenChange}: DialogEditDishProps) => {
+const DialogCreateDish = ({id, name, open, onOpenChange, onReload}: DialogEditDishProps) => {
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent>
@@ -21,7 +22,7 @@ const DialogCreateDish = ({id, name, open, onOpenChange}: DialogEditDishProps) =
                         Update name dish &apos;<span className="text-primary">{name}</span>&apos;
                     </DialogTitle>
                 </DialogHeader>
-                <FormEditDish id={id} name={name} onSuccess={() => onOpenChange(false)} />
+                <FormEditDish id={id} name={name} onSuccess={() => onOpenChange(false)} onReload={onReload} />
             </DialogContent>
         </Dialog>
     )

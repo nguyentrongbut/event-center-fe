@@ -17,7 +17,9 @@ import {formatCurrency} from "@/utils/format.ts";
 // ** services
 import {deleteRoom} from "@/services/room";
 
-export const columnsRoom: ColumnDef<TRoom>[] = [
+export const columnsRoom = (
+    fetchListRoom: () => Promise<void>
+): ColumnDef<TRoom>[] =>  [
     {
         accessorKey: "name",
         header: ({ column }) => {
@@ -149,6 +151,7 @@ export const columnsRoom: ColumnDef<TRoom>[] = [
                     editUrl={`/dashboard/venue/room/edit/${roomId}`}
                     entityName="room"
                     onDelete={() => deleteRoom(roomId)}
+                    onReload={fetchListRoom}
                 />
             )
         },

@@ -19,14 +19,12 @@ const Venue = () => {
 
     const [listVenue, setListVenue] = useState<TVenue[]>([]);
 
-    useEffect(() => {
-        const fetchListVenue = async () => {
-            const data = await getListVenue()
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            setListVenue(data)
-        }
+    const fetchListVenue = async () => {
+        const data = await getListVenue()
+        setListVenue(data)
+    }
 
+    useEffect(() => {
         fetchListVenue()
     }, [])
 
@@ -35,7 +33,7 @@ const Venue = () => {
             <TitleWithCreateBtn
                 title="Venue List"
                 createUrl="/dashboard/venue/create"/>
-            <DataTable columns={columnsVenue} data={listVenue}/>
+            <DataTable columns={columnsVenue(fetchListVenue)} data={listVenue}/>
         </ContainerAdmin>
     )
 }

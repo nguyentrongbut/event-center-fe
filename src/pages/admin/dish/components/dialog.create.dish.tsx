@@ -11,7 +11,11 @@ import {Button} from "@/components/ui/button";
 // ** Lucide Icon
 import {Plus} from "lucide-react";
 
-const DialogCreateDish = () => {
+interface IDialogCreateDishProps {
+    onReload: () => void
+}
+
+const DialogCreateDish = ({onReload}: IDialogCreateDishProps) => {
     const [open, setOpen] = useState(false)
     return (
         <Dialog open={open} onOpenChange={setOpen}>
@@ -25,7 +29,7 @@ const DialogCreateDish = () => {
                 <DialogHeader>
                     <DialogTitle> Add New Dish</DialogTitle>
                 </DialogHeader>
-                <FormCreateDish onSuccess={() => setOpen(false)}/>
+                <FormCreateDish onSuccess={() => setOpen(false)} onReload={onReload}/>
             </DialogContent>
         </Dialog>
     )
