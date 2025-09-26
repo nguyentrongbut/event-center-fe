@@ -27,8 +27,7 @@ const DetailVenueClient = () => {
     useEffect(() => {
         const fetchListVenue = async () => {
             const data = await getListVenue()
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
+
             setListVenue(data)
         }
 
@@ -39,8 +38,7 @@ const DetailVenueClient = () => {
         const fetchVenue = async () => {
             if(!slug) return
             const data = await getDetailVenue(slug)
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
+
             setVenue(data)
         }
 

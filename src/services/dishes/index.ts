@@ -88,8 +88,6 @@ export async function updateDish(id: number, name: string) {
             },
         });
 
-        console.log(response.data);
-
         return response.data;
     } catch (error) {
         console.log(error);

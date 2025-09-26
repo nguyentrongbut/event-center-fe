@@ -28,14 +28,14 @@ const Event = () => {
 
     const [listEvent, setListEvent] = useState<TEvent[]>([])
 
-    useEffect(() => {
-        const fetchListEvent = async () => {
-            const data = await getListEvent();
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            setListEvent(data)
-        }
+    const fetchListEvent = async () => {
+        const data = await getListEvent();
 
+        setListEvent(data)
+    }
+
+
+    useEffect(() => {
         fetchListEvent()
     }, [])
 
@@ -52,7 +52,7 @@ const Event = () => {
                     </Button>
                 </Link>
             </div>
-            <DataTable columns={columnsEvent} data={listEvent}/>
+            <DataTable columns={columnsEvent(fetchListEvent)} data={listEvent}/>
         </ContainerAdmin>
     )
 }

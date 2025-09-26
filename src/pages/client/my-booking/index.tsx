@@ -53,8 +53,6 @@ const MyBookingDetail: React.FC = () => {
                 if (!id) return
                 const booking = await getBookingDetail(+id);
                 const user = await getProfile();
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
                 setBookingDetail(booking);
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 // @ts-expect-error

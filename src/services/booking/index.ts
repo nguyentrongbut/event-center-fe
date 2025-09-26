@@ -189,14 +189,12 @@ export async function sendCallbackFromFE(query: Record<string, string>) {
         signature: query["signature"],
     };
 
-    console.log("Payload gửi callback:", payload);
-
     try {
         const response = await axios.post(
             `${urlPaymentCallback}`,
             payload
         );
-        console.log("Callback Response:", response.data);
+
         return response.data;
     } catch (error) {
         console.error("Callback Error:", error);

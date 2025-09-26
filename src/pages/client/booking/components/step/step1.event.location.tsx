@@ -57,8 +57,6 @@ const Step1EventLocation = ({
             setIsLoadingVenues(true);
             try {
                 const data = await getListVenue();
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
                 setListVenues(data);
             } catch (error) {
                 console.error("Error fetching venues:", error);
@@ -75,8 +73,6 @@ const Step1EventLocation = ({
             setIsLoadingEvent(true);
             try {
                 const data = await getListEvent();
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
                 setListEvents(data);
             } catch (error) {
                 console.error("Error fetching event:", error);

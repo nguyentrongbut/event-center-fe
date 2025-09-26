@@ -49,8 +49,7 @@ const EditEvent = () => {
         const fetchEvent = async () => {
             if (!slug) return
             const data = await getDetailEvent(slug)
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
+
             setEvent(data)
         }
 

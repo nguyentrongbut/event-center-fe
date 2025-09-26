@@ -19,7 +19,9 @@ import type {TBooking} from "@/types/data";
 // ** Services
 import {changeStatus} from "@/services/booking";
 
-export const columnsBooking: ColumnDef<TBooking>[] = [
+export const columnsBooking = (
+    fetchListBooking: () => Promise<void>
+): ColumnDef<TBooking>[] => [
     {
         accessorKey: "orderCode",
         header: ({column}) => {
@@ -120,7 +122,7 @@ export const columnsBooking: ColumnDef<TBooking>[] = [
     },
     {
         accessorKey: "status",
-        header: ({ column }) => {
+        header: ({column}) => {
             return (
                 <div
                     className="flex gap-2 items-center cursor-pointer"
@@ -129,19 +131,19 @@ export const columnsBooking: ColumnDef<TBooking>[] = [
                     }
                 >
                     Status
-                    <ArrowUpDown className="ml-2 size-4" />
+                    <ArrowUpDown className="ml-2 size-4"/>
                 </div>
             );
         },
-        cell: ({ row }) => {
+        cell: ({row}) => {
             const status = row.getValue("status") as string;
             const bookingId = row.original.id;
 
             const statusMap: Record<string, { label: string; color: string }> = {
-                pending: { label: "Pending", color: "bg-yellow-500" },
-                confirmed: { label: "Confirmed", color: "bg-blue-500" },
-                paid: { label: "Paid", color: "bg-green-500" },
-                cancelled: { label: "Cancelled", color: "bg-red-500" },
+                pending: {label: "Pending", color: "bg-yellow-500"},
+                confirmed: {label: "Confirmed", color: "bg-blue-500"},
+                paid: {label: "Paid", color: "bg-green-500"},
+                cancelled: {label: "Cancelled", color: "bg-red-500"},
             };
 
             const statusData = statusMap[status] ?? {
@@ -154,6 +156,8 @@ export const columnsBooking: ColumnDef<TBooking>[] = [
                 try {
                     const result = await changeStatus(bookingId, status === "pending" ? "confirmed" : "pending");
                     if (!result) return toast.error("Error changing status");
+                    fetchListBooking()
+                    toast.success("Change status booking successfully.")
 
                 } catch (e) {
                     console.error(e);

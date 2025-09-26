@@ -20,15 +20,13 @@ const Booking = () => {
 
     const [listBooking, setListBooking] = useState<TBooking[]>([])
 
-    useEffect(() => {
-        const fetchListBooking = async () => {
-            const data = await getListBooking()
-            
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
-            setListBooking(data)
-        }
+    const fetchListBooking = async () => {
+        const data = await getListBooking()
 
+        setListBooking(data)
+    }
+
+    useEffect(() => {
         fetchListBooking()
     }, []);
 
@@ -37,7 +35,7 @@ const Booking = () => {
             <HeadingAdmin className="mb-4">
                 List Booking
             </HeadingAdmin>
-            <DataTable  columns={columnsBooking} data={listBooking}/>
+            <DataTable  columns={columnsBooking(fetchListBooking)} data={listBooking}/>
         </ContainerAdmin>
     )
 }

@@ -28,8 +28,7 @@ const EventClient = () => {
     useEffect(() => {
         const fetchEvent = async () => {
             if (!slug) return
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
+
             const data: TDetailEvent = await getDetailEvent(slug);
             setEvent(data)
         }

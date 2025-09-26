@@ -15,7 +15,9 @@ import type {TEvent} from "@/types/data";
 import {deleteEvent} from "@/services/events";
 
 
-export const columnsEvent: ColumnDef<TEvent>[] = [
+export const columnsEvent = (
+    fetchListEvent: () => Promise<void>
+): ColumnDef<TEvent>[] => [
     {
         accessorKey: "subName",
         header: ({column}) => {
@@ -96,6 +98,7 @@ export const columnsEvent: ColumnDef<TEvent>[] = [
                     editUrl={`/dashboard/event/edit/${eventSlug}`}
                     entityName="event"
                     onDelete={() => deleteEvent(eventId)}
+                    onReload={fetchListEvent}
                 />
             )
         },

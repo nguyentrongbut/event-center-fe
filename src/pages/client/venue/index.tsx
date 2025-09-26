@@ -20,8 +20,7 @@ const VenueClient = () => {
     useEffect(() => {
         const fetchListVenue = async () => {
             const data = await getListVenue()
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-expect-error
+
             setListVenue(data)
         }
 

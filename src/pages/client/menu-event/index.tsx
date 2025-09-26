@@ -23,8 +23,6 @@ const MenuEvent = () => {
             try {
                 if (!slug) return
                 const data = await getDetailEvent(slug)
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-expect-error
                 setEventDetail(data)
             } catch (error) {
                 console.error("Failed to load dish:", error)

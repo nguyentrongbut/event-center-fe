@@ -73,7 +73,7 @@ const AppSideBar = () => {
 
     const handleLogout = async () => {
         await logout()
-        navigate("/sign-in")
+        navigate("/")
     }
 
     return (

@@ -26,6 +26,7 @@ export async function getListVenue() {
 export async function getDetailVenue(slug: string) {
     try {
         const response = await axios.get(`${url}/${slug}`);
+
         return response.data;
     } catch (error) {
         console.log(error);
