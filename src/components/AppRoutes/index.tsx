@@ -66,11 +66,11 @@ function AppRoutes() {
                 <Route
                     element={
                         <ProtectedRoute roles={[ROLE.ADMIN]}>
-                            <AdminLayout />
+                            <AdminLayout/>
                         </ProtectedRoute>
                     }
                 >
-                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/dashboard" element={<Dashboard/>}/>
                     <Route path='/dashboard/menu/dish' element={<Dish/>}/>
                     <Route path='/dashboard/menu' element={<Menu/>}/>
 
@@ -102,10 +102,29 @@ function AppRoutes() {
                 </Route>
                 {/* End Admin route */}
 
-                 {/*Public route*/}
+                {/* User route */}
+                <Route
+                    element={
+                        <ProtectedRoute roles={[ROLE.USER]}>
+                            <AdminLayout/>
+                        </ProtectedRoute>
+                    }
+                >
+                    {/* Payment */}
+                    <Route index path="/booking" element={<BookingClient/>}/>
+                    <Route index path="/payment/return" element={<Payment/>}/>
+                    <Route index path="/payment/success" element={<PaymentSuccess/>}/>
+                    <Route index path="/payment/fail" element={<PaymentFail/>}/>
+
+                    <Route index path="/my-booking/:id" element={<MyBookingDetail/>}/>
+
+                    <Route index path="/profile" element={<Profile/>}/>
+                </Route>
+                {/* End User route */}
+
+                {/*Public route*/}
                 <Route element={<DefaultLayout/>}>
                     <Route index path="/" element={<Home/>}/>
-                    <Route index path="/booking" element={<BookingClient/>}/>
                     <Route index path="/event/:slug" element={<EventClient/>}/>
 
                     {/* Menu */}
@@ -115,15 +134,6 @@ function AppRoutes() {
                     {/* Venue */}
                     <Route index path="/venue" element={<VenueClient/>}/>
                     <Route index path="/venue/:slug" element={<DetailVenueClient/>}/>
-
-                    {/* Payment */}
-                    <Route index path="/payment/return" element={<Payment/>}/>
-                    <Route index path="/payment/success" element={<PaymentSuccess/>}/>
-                    <Route index path="/payment/fail" element={<PaymentFail/>}/>
-
-                    <Route index path="/my-booking/:id" element={<MyBookingDetail/>}/>
-
-                    <Route index path="/profile" element={<Profile/>}/>
                 </Route>
                 {/* End Public route */}
 

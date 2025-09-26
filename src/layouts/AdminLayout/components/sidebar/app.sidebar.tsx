@@ -2,7 +2,7 @@
 import {useEffect, useState} from "react"
 
 // ** React Router
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 // ** Lucide Icon
 import {
@@ -41,7 +41,7 @@ import {cn} from "@/lib/utils"
 import type {TProfile} from "@/types/data";
 
 // ** services
-import {getProfile} from "@/services/auth";
+import {getProfile, logout} from "@/services/auth";
 
 // ** configs
 import {MAIN_NAV} from "@/configs/layouts.tsx";
@@ -51,6 +51,8 @@ const AppSideBar = () => {
     const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({})
 
     const [infoProfile, setInfoProfile] = useState<TProfile | null>(null)
+
+    const navigate = useNavigate()
     useEffect(() => {
 
         const fetchInfoProfile = async () => {
@@ -67,6 +69,11 @@ const AppSideBar = () => {
 
     const toggleMenu = (title: string) => {
         setOpenMenus((prev) => ({...prev, [title]: !prev[title]}))
+    }
+
+    const handleLogout = async () => {
+        await logout()
+        navigate("/sign-in")
     }
 
     return (
@@ -162,7 +169,7 @@ const AppSideBar = () => {
                                 </SidebarMenuButton>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent side="bottom" align="end" className="min-w-56 rounded-lg">
-                                <DropdownMenuItem>
+                                <DropdownMenuItem onClick={handleLogout}>
                                     <LogOut className="mr-2 h-4 w-4"/>
                                     Logout
                                 </DropdownMenuItem>
